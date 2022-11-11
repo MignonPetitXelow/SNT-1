@@ -1,0 +1,29 @@
+.background{
+    display: flex;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url('https://i.pinimg.com/originals/70/cd/79/70cd79c57b5f3e7e427cb1e930c34677.jpg');
+    background-position: bottom;
+        background-position-x: center;
+        background-position-y: top;
+    background-repeat: repeat-x;
+    
+}
+
+.unaffectedopacity, .header{
+    
+}
+
+.unaffectedopacity, .text{
+    color:white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    opacity: 1000%;
+}
+
+.unaffectedopacity {
+    opacity: 1000%;
+}
