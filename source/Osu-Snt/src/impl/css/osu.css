@@ -1,3 +1,40 @@
+@font-face {font-family: "Torus" ; src: url("../../../resources/fonts/Torus-Regular.otf"); font-weight: 400;}
+@font-face {font-family: "Torus"; src: url("../../../resources/fonts/Torus-SemiBold.otf"); font-weight: 700;}
+@font-face { font-family: "Torus"; src: url("../../../resources/fonts/Torus-Bold.otf"); font-weight: 800; }
+
+@keyframes zoom-in-zoom-out {
+    0% {
+      background-size: 130%;
+      background-position: 50%;
+    }
+    50% {
+      background-size: 150%;
+      background-position-y: 40%;
+    }
+    100% {
+      background-size: 130%;
+      background-position: 50%;
+    }
+}
+
+@keyframes movingTriangles {
+    0% {
+        background-position-x: left;
+    }
+    50% {
+        background-position-x: right;
+    }
+    100% {
+        background-position-x: left;
+    }
+}
+
+.body{
+    transition: all 1.2s, background-color 1.5s;
+    background-size: 250%;
+    background-position: 50%;
+}
+
 .triangle {
     display: flex;
     position: absolute;
@@ -36,13 +73,13 @@
     left: 0;
     top: 0;
     height: 162px;
-    width: 100%;
+    width: 100%; 
     box-shadow: 0 1px 3px rgba(0,0,0,.25);
     background-color: #221F2E
 }
 
 .navbar {
-    filter: hue-rotate(120deg);
+    z-index: 10;
     display: flex;
     align-items: center;
 
@@ -55,17 +92,18 @@
 
     transform: translateZ(0);
 
-    font-family: Torus Pro;
+    font-family:"Torus";
     font-size: 16px;
     line-height: 1.25;
     color: #fff;
 }
 
 .navbar-void{
-    padding-left: 52%;
+    padding-left: 43.5%;
 }
 
 .navbar-account{
+    z-index: 10;
     top: 5px;
     display:flex;
     align-items: center;
@@ -73,6 +111,7 @@
 }
 
 .navbar-account-avatar{
+    z-index: 10;
     background-image: url("https://i.ppy.sh/5909dcab19c5f4d866da39ab5362bd046849b37c/68747470733a2f2f692e696d6775722e636f6d2f5165706e55347a2e6a7067");
     width: 60px;
     height: 60px;
@@ -81,8 +120,8 @@
     overflow: hidden;
     transition: width .3s,height .3s;
     position: relative;
-
-
+    display: inline-block;
+    margin-right: 5px;
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -113,11 +152,156 @@
     display: flex;
     border-radius: 10px;
     box-shadow: 0 1px 3px rgba(0,0,0,.25);
-    background: #302e38b3;
+    background: #302e38a2;
     align-items: center;
 
     height: 65%;
     width: 21%;
+}
+
+.popup{
+    z-index: 10;
+    position: absolute;
+    top: -10%;
+    right: 100%;
+    height: 0;
+
+    transition: width .3s,height .3s, right .3s, top .3s, opacity .3s;
+}
+
+.popup-user-container{
+    padding-bottom: 8px;
+    padding-top: 5px;
+}
+
+.popup-user-background{
+    background-image: url('https://osu.ppy.sh/images/headers/profile-covers/c6.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+
+    align-items: center;
+    vertical-align: bottom;
+
+    width: auto;
+    height: 100px;
+}
+
+.popup-user-avatar{
+    z-index: 10;
+    background-image: url("https://i.ppy.sh/5909dcab19c5f4d866da39ab5362bd046849b37c/68747470733a2f2f692e696d6775722e636f6d2f5165706e55347a2e6a7067");
+    width: 60px;
+    height: 60px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.25);
+    border-radius: 50%;
+    overflow: hidden;
+    transition: width .3s,height .3s;
+    position: relative;
+    display: inline-block;
+    margin-left: 32%;
+    margin-top: 5%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.popup-user-footer{
+    transform: translateZ(0);
+    align-items: center;
+}
+
+.popup-user-name{
+    position: absolute;
+    font-family:"Torus";
+    font-size: 20px;
+    color: #fff;
+    top: -5px;
+    margin-left: calc(100% - 67%);
+    margin-right: auto;
+}
+
+.popup-buttons-container{
+    z-index: 10;
+    padding-top: 6px;
+    align-items: center;
+}
+
+.popup-button{
+    z-index: 10;
+    width: auto;
+    height: 30px;
+    margin: 3px;
+    border-radius: 5px;
+    background-color: #24222A;
+    
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    transition: all .3s;
+    font-family:"Torus";
+    font-size: 14px;
+    text-align: center;
+}
+
+.popup-button:hover{
+    background-color: #2E293D;
+    color: #C2B8E0;
+}
+
+.popup-button-text{
+    flex: 1;
+    font-size: 14px;
+    font-weight: 700;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar-account-dropdown{
+    margin-top: 0;
+    max-width: 400px;
+    width: 180px;
+    padding: 5px 5px;
+    border: 1px solid #3D3946;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.5);
+    background-color: #302e38b3;
+}
+
+.parameter-button{
+    z-index: 10;
+    width: auto;
+    height: 30px;
+    margin: 3px;
+    border-radius: 5px;
+    background-color: #24222A;
+    
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    transition: all .3s;
+    font-family:"Torus";
+    font-size: 14px;
+    text-align: center;
+}
+
+.parameter-button-dot{
+    position: relative;
+    background-color: rgb(227, 76, 76);
+    transition: all 0.6s;
+    border-radius: 50px;
+    height: 10px;
+    width: 10px;
+    left: 5%;
+}
+
+.parameter-button:hover{
+    background-color: #2E293D;
+    color: #C2B8E0;
 }
 
 .icon-twitter{
@@ -152,6 +336,39 @@
     filter: sepia(255) brightness(150);
 }
 
+.icon-discord{
+    background-image: url("../../../resources/icons/discord.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    left: 15%;
+    filter: sepia(255) brightness(150);
+}
+
+.icon-lock{
+    background-image: url("../../../resources/icons/lock.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    left: 25px;
+    filter: invert();
+}
+
+.icon-parameter{
+    background-image: url("../../../resources/icons/parameter.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    left: 25px;
+    filter: invert();
+}
+
 .osu-logo{
     position: relative;
     left: 0;
@@ -179,7 +396,7 @@
     padding: 15px;
     display: flex;
     align-items: center;
-    font-family: Torus Pro;
+    font-family:"Torus";
     font-size: 14px;
 }
 
@@ -194,8 +411,8 @@
     padding: 15px;
     display: flex;
     align-items: center;
-    font-family: Torus Pro;
-    font-weight: bolder;
+    font-family:"Torus";
+    font-weight: 800;
     font-size: 14px;
 }
 
@@ -219,12 +436,12 @@
     max-width: 1000px;
 
     position: relative;
-    top: 100px;
+    top: -10px;
 
     margin-left: auto;
     margin-right: auto; 
 
-    font-family: Torus Pro;
+    font-family:"Torus";
     font-size: 16px;
     line-height: 1.25;
     color: #fff;
@@ -276,12 +493,12 @@
     max-width: 1000px;
 
     position: relative;
-    top: 100px;
+    top: -10px;
 
     margin-left: auto;
     margin-right: auto; 
 
-    font-family: Torus Pro;
+    font-family:"Torus";
     font-size: 16px;
     line-height: 1.25;
     color: #fff;
@@ -315,7 +532,7 @@
     max-width: 1000px;
 
     position: relative;
-    top: 100px;
+    top: -10px;
 
     margin-bottom: 15px;
     margin-left: auto;
@@ -332,7 +549,7 @@
     display: flex;
     background: #24222A;
 
-    font-family: Torus Pro;
+    font-family: "Torus";
     font-size: 10px;
     line-height: 1.25;
     color: #fff;
@@ -393,7 +610,7 @@
     background: #302E38;
 }
 
-.post:hover{
+.post:hover {
     background: #2E293D;
 }
 
@@ -465,6 +682,7 @@
     background-position: 50%;
     width: 15px;
     height: 15px;
+    transition: all 0.6s;
 }
 
 .post-body-text-container{

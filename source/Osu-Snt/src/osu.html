@@ -2,33 +2,125 @@
     <title> OSU C BI1 </title>
     <link rel="icon" type="image/x-icon" href="../resources/osu_no_background.png">
     <link rel="stylesheet" href="../src/impl/css/osu.css">
+    <script src="../src/impl/javascript/buttons.js"></script>
     <meta charset="utf-8"/>
 </head>
 
-<body style="background-color:rgb(28, 28, 28)">    
-    <div class="navbar-bg-container"><div class="navbar-bg"></div></div>
-    <div class="triangle">
-        <div class="navbar">
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">
-                <div class="osu-logo"></div>
-            </a>
+<body class="body" style="background-color:rgb(28, 28, 28)" id="body">  
+    <div class="navbar-bg-container" id="navbar"><div class="navbar-bg"></div></div>
+    <div class="triangle"></div>
+    <div class="navbar">
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"><div class="osu-logo"></div></a>
+        <a class="button" href="#"> <span class="relative"> accueil <span class="button-dot"></span></span> </a>
+        <a class="button" href="#"> <span class="relative"> developement </span> </a>
+        <a class="button" href="#"> <span class="relative"> boutique </span> </a>
 
-            <a class="button" href="osu.html"> <span class="relative"> accueil <span class="button-dot"></span></span> </a>
-            <a class="button" href="https://discord.gg/TnwQVBDZzr"> <span class="relative"> developement </span> </a>
+        <span class="navbar-void"></span>
 
-            <span class="navbar-void"></span>
+        <div class="navbar-account-body">
+            <div class="navbar-account">
+                <a class="navbar-account-widget"><!-- Twitter icon--> <span class="icon-twitter"></span></a>
+                <a class="navbar-account-widget" href="https://github.com/mignonpetitxelow"><!-- Github icon--> <span class="icon-github"></span></a>
+                <a class="navbar-account-widget" href="https://osu.ppy.sh/home"><!-- Osu icon--><span class="icon-mania"></span></a>
+                
+                <button class="navbar-account-avatar" onclick="accountPopUp()"></button>
 
-            <div class="navbar-account-body">
-                <div class="navbar-account">
-                    <a class="navbar-account-widget"><!-- Twitter icon--> <span class="icon-twitter"></span></a>
-                    <a class="navbar-account-widget" href="https://github.com/mignonpetitxelow"><!-- Github icon--> <span class="icon-github"></span></a>
-                    <a class="navbar-account-widget" href="https://osu.ppy.sh/home"><!-- Osu icon--><span class="icon-mania"></span></a>
-                    
-                    <a class="navbar-account-avatar"></a>
+                <div class="popup" id="usermenu" style="visibility: hidden; transform: translateX(110%) translateY(-118%)">
+                    <div class="navbar-account-dropdown">
+                        <div class="popup-user-container">
+                            <div class="popup-user-background">
+                                <div class="popup-user-avatar"></div>
+                                <div class="popup-user-footer">
+                                    <span class="popup-user-name">Guest</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a class="popup-button" onclick="warningMessage('github', 'https\:\/\/github.com/mignonpetitxelow/snt-1');"  href="#"><span class="icon-github"></span><span class="popup-button-text">projet github</span></a>
+                        <a class="popup-button" onclick="checkIfTrianglesOpening()" href="#"><span class="icon-lock" id="secretsettings-icon-lock"></span><span class="popup-button-text">option secrete</span> 
+                            <audio id="welcometoosu"><source src="../resources/audio/osu_welcome.mp3" type="audio/mpeg"></audio>
+                            <audio id="triangles"><source src="../resources/audio/songs/cYsmix - Triangles.mp3" type="audio/mpeg"></audio>
+                            <audio id="seeya"><source src="../resources/audio/seeya.mp3" type="audio/mpeg"></audio>
+                        </a>
+                        <a class="popup-button" onclick="playDiscordo()" target="_blank" rel="noopener noreferrer"  href="#"><span class="icon-discord"></span><span class="popup-button-text">discord</span>
+                            <audio id="discordo"><source src="../resources/audio/discordo.mp3" type="audio/mpeg"></audio>
+                        </a>
+
+                        <a class="popup-button" onclick="showParameter(true);"  href="#"><span class="icon-parameter" ></span><span class="popup-button-text">parametres</span></a>
+                    </div>
+                </div>
+
+                <div class="popup" id="parametermenu" style="visibility: hidden; transform: translateX(100%) translateY(-118%);">
+                    <div class="navbar-account-dropdown">
+                        <div class="popup-user-container">
+                            <div class="popup-user-background" style="background-image: url('../resources/background/osu/image0.png');">
+                                <div class="popup-user-avatar" style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/d/dc/Settings-icon-symbol-vector.png); filter: invert();"></div>
+                                <div class="popup-user-footer">
+                                    <span class="popup-user-name" style="margin-left: calc(100% - 80%);">Parametres</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a class="parameter-button" href="#" onclick="testButton()">
+                            <span class="parameter-button-dot" id="settings-button-dot"></span>
+                            <span class="popup-button-text">Test</span>
+                        </a>
+
+                        <a class="parameter-button" href="#" onclick="showPostBadges()">
+                            <span class="parameter-button-dot" id="medals-settings-dot" style="background-color: rgb(89, 231, 103);"></span>
+                            <span class="popup-button-text">Medailles de poste</span>
+                        </a>
+
+                        <a class="parameter-button" href="#" onclick="playNo()">
+                            <span class="parameter-button-dot"></span>
+                            <span class="popup-button-text">Desac easter eggs</span>
+                            <audio id="no"><source src="../resources/audio/no.mp3" type="audio/mpeg"></audio>
+                        </a>
+
+                        <a class="parameter-button" href="#" onclick="trianglesOpening()">
+                            <span class="parameter-button-dot", id="triangles-button-dot"></span>
+                            <span class="popup-button-text">Triangles Opening</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="popup" id="warning" style="visibility: hidden; transform: translateX(110%) translateY(-118%)">
+                    <div class="navbar-account-dropdown">
+                        <div class="popup-user-container">
+                            <div class="popup-user-background" style="background-image: url('https://osu.ppy.sh/assets/images/button.16de7c2c.svg'); background-size: 175%; background-color: crimson;">
+                                <div class="popup-user-avatar" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/TPMS_warning_icon.svg/2560px-TPMS_warning_icon.svg.png'); filter: invert(); background-position: 50%; box-shadow: none;"></div>
+                                <div class="popup-user-footer">
+                                    <span class="popup-user-name" style="margin-left: calc(100% - 76%)">Attention!</span>
+                                </div>
+                            </div>
+                            <div class="post-body-text-container" style="margin: auto;">
+                                <span class="post-body-text-title" id="warningText">Etes-vous sur de vouloir vous connecté a se site?</span>
+                            </div>
+                            <a class="popup-button" onclick="warningAccept()" style="background-image: url('https://osu.ppy.sh/assets/images/button.16de7c2c.svg'); background-size: 175%; background-color: crimson; animation: movingTriangles 5s ease infinite;"><span class="popup-button-text">Oui</span></a>
+                            <a class="popup-button" onclick="warningDiscard()"><span class="popup-button-text">Non</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="popup" id="volumeWarning" style="visibility: hidden; transform: translateX(110%) translateY(-118%)">
+                    <div class="navbar-account-dropdown">
+                        <div class="popup-user-container">
+                            <div class="popup-user-background" style="background-image: url('https://osu.ppy.sh/assets/images/button.16de7c2c.svg'); background-size: 175%; background-color: darkorchid;">
+                                <div class="popup-user-avatar" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Speaker_Icon.svg/768px-Speaker_Icon.svg.png'); filter: invert(); background-position: 50%; box-shadow: none;"></div>
+                                <div class="popup-user-footer">
+                                    <span class="popup-user-name" style="margin-left: calc(100% - 76%)">Attention!</span>
+                                </div>
+                            </div>
+                            <div class="post-body-text-container" style="margin: auto;">
+                                <span class="post-body-text-title" id="warningText">Le mode Triangles Opening est activé</span>
+                            </div>
+                            <a class="popup-button" onclick="volumeWarningAccept()" style="background-image: url('https://osu.ppy.sh/assets/images/button.16de7c2c.svg'); background-size: 175%; background-color: darkorchid; animation: movingTriangles 5s ease infinite;"><span class="popup-button-text">Oui</span></a>
+                            <a class="popup-button" onclick="volumeWarningDiscard()"><span class="popup-button-text">Non</span></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        
     </div>
 
     <div class="fheader-content">
@@ -60,12 +152,12 @@
                             <div class="post-body-date-prev">9</div>
                             <div class="post-body-date-month-year">Nov 2022</div>
                             <div class="post-body-medals">
-                                <a class="medal" style="background-image: url('https://assets.ppy.sh/medals/web/all-secret-challenge_accepted@2x.png')"></a>
+                                <a class="medal" id="medals" style="background-image: url('https://assets.ppy.sh/medals/web/all-secret-challenge_accepted@2x.png')"></a>
                             </div>
                         </div>
     
                         <div class="post-body-text-container">
-                            <a class="post-body-text-title">Ils essayent de faire un proces aux profs</a>
+                            <a class="post-body-text-title">Ils essayent de faire un proces aux profs (gato)</a>
                                 <p class="post-body-text-description">
                                     J'avoue que je sais meme plus quoi dire la.. Bon c'est pas vrai mais t'inquiete
                                 </p>
@@ -80,8 +172,8 @@
                             <div class="post-body-date-prev">8</div>
                             <div class="post-body-date-month-year">Nov 2022</div>
                             <div class="post-body-medals">
-                                <a class="medal" style="background-image: url('https://assets.ppy.sh/medals/web/all-secret-stumbler@2x.png')"></a>
-                                <a class="medal" style="background-image: url('https://assets.ppy.sh/medals/web/all-skill-highranker-4@2x.png')"></a>
+                                <a class="medal" id="medals1" style="background-image: url('https://assets.ppy.sh/medals/web/all-secret-stumbler@2x.png')"></a>
+                                <a class="medal" id="medals2" style="background-image: url('https://assets.ppy.sh/medals/web/all-skill-highranker-4@2x.png')"></a>
                             </div>
                         </div>
     
