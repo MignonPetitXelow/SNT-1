@@ -10,20 +10,18 @@
     <script src="../src/impl/javascript/settings/settings.js"></script>
     <script src="../src/impl/javascript/cookies/cookie.js"></script>
     <script src="../src/impl/javascript/graphic/update.js"></script>
+    <script src="../src/impl/javascript/actions/notifications.js"></script>
 
     <meta charset="utf-8"/>
 </head>
 
 <body class="body" style="background-color:rgb(28, 28, 28)" id="body"> 
-    <script>
-        start();
-    </script>
-
     <!-- AUDIO -->
     <audio id="accept"><source src="../resources/audio/qol/menu-back-click.wav" type="audio/wav"></audio>
     <audio id="deny"><source src="../resources/audio/qol/menu-charts-click.wav" type="audio/wav"></audio>
     <audio id="notification"><source src="../resources/audio/qol/back-button-hover.wav" type="audio/wav"></audio>
     <audio id="open-menu"><source src="../resources/audio/qol/menu-multiplayer-click.wav" type="audio/wav"></audio>
+    <audio id="open-menu2"><source src="../resources/audio/qol/restart.wav" type="audio/wav"></audio>
     <audio id="click"><source src="../resources/audio/qol/key-press-1.mp3" type="audio/mpeg"></audio>
 
 
@@ -130,7 +128,7 @@
                                 </div>
                             </div>
                             <div class="post-body-text-container" style="margin: auto;">
-                                <span class="post-body-text-title" id="warningText">Etes-vous sur de vouloir vous connecté a se site?</span>
+                                <span class="popup-desc" id="warningText">Etes-vous sur de vouloir vous connecté a se site?</span>
                             </div>
                             <a class="popup-button" onclick="warningAccept()" style="background-image: url('https://osu.ppy.sh/assets/images/button.16de7c2c.svg'); background-size: 175%; background-color: crimson; animation: movingTriangles 5s ease infinite;"><span class="popup-button-text">Oui</span></a>
                             <a class="popup-button" onclick="warningDiscard()"><span class="popup-button-text">Non</span></a>
@@ -148,13 +146,18 @@
                                 </div>
                             </div>
                             <div class="post-body-text-container" style="margin: auto;">
-                                <span class="post-body-text-title" id="warningText">Le mode musique pour l'opening est activé</span>
+                                <span class="popup-desc" id="warningText">Le mode musique pour l'opening est activé</span>
                             </div>
                             <a class="popup-button" onclick="volumeWarningAccept()" style="background-image: url('https://osu.ppy.sh/assets/images/button.16de7c2c.svg'); background-size: 175%; background-color: darkorchid; animation: movingTriangles 5s ease infinite;"><span class="popup-button-text">Suivant</span></a>
                             <a class="popup-button" onclick="volumeWarningDiscard()"><span class="popup-button-text">Retour</span></a>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="popup">
+                <span id="notification-title"></span>
+                <span id="notification-desc"></span>
             </div>
         </div>
     </div>
@@ -404,5 +407,6 @@
             </div>
         </div>
     </div>
+    <script>start();</script>
     </body>
 </html>

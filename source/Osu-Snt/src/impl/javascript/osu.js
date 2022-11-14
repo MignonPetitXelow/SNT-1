@@ -29,6 +29,8 @@ function start()
 
         return;
     }
+
+    notification('cc');
     
     cookie_setCookie('visited', true, 255);
     export_parameters(strTobol(cookie_getCookie('visited'))); //FIXME: Dois etre l'inverse de la valeur entrer

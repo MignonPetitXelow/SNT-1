@@ -20,7 +20,7 @@ const strTobol = (stringValue) =>
           return false;
 
         default: 
-          return JSON.parse(stringValue);
+          return stringValue;
     }
 }
 function seti_forceValue(index=0, value=false) { if(value==null) seti_items[index]=false; seti_items[index] = value; }
@@ -41,7 +41,10 @@ function import_parameters()
 {
     for(var i=0; i<seti_items.length; ++i)
     {
-        seti_items[i] = strTobol(cookie_getCookie('parameter_'+i));
+        if(i != 1)
+        {
+            seti_items[i] = strTobol(cookie_getCookie('parameter_'+i));
+            update_ParameterDot(i);
+        }
     }
-    update_ParameterDot();
 }

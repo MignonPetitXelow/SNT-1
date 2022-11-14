@@ -6,7 +6,6 @@ function playSong(audio, force=false)
             // Security :
             document.getElementById(audio).pause();
             document.getElementById(audio).currentTime = 0;
-
             document.getElementById(audio).play();
         }
     }

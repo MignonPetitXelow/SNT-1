@@ -20,7 +20,7 @@ function accountPopUp() {
     }
     else 
     {
-        playSong('open-menu');
+        playSong('open-menu2');
         document.getElementById('usermenu').style.visibility = 'visible';
         document.getElementById('usermenu').style.right = '-5%';
         document.getElementById('usermenu').style.opacity = '100%';
@@ -44,6 +44,7 @@ function secretSettings() {
     if(secretSettingsActivate) 
     {
         playSong('accept');
+        
         if(!seti_items[2])document.getElementById('welcometoosu').play();
         if(seti_items[2]) document.getElementById('triangles').play();
         if(seti_items[3]) document.getElementById('circles').play();
@@ -99,7 +100,7 @@ function activeSong()
 
 function showParameter()
 {
-    playSong('open-menu');
+    playSong('open-menu2');
 
     showParameters = !showParameters;
     if(!showParameters) 
@@ -120,17 +121,14 @@ function showParameter()
 
 function testButton()
 {
-    const dot = document.getElementById(
-        prmBdToStr(0)
-    );
+    const dot = document.getElementById(prmBdToStr(0));
 
 
     playSong('accept');
     seti_Inverse(0);
 
 
-    if(seti_items[0])
-         dot.style.backgroundColor = 'rgb(89, 231, 103)'; 
+    if(seti_items[0]) dot.style.backgroundColor = 'rgb(89, 231, 103)'; 
     else dot.style.backgroundColor = 'rgb(227, 76, 76)';
 }
 
