@@ -1,0 +1,972 @@
+@font-face {font-family: "Torus" ; src: url("../../assets/fonts/Torus-Regular.otf"); font-weight: 400;}
+@font-face {font-family: "Torus"; src: url("../../assets/fonts/Torus-SemiBold.otf"); font-weight: 700;}
+@font-face { font-family: "Torus"; src: url("../../assets/fonts/Torus-Bold.otf"); font-weight: 800; }
+@font-face { font-family: "Torus"; src: url("../../assets/fonts/Torus-Light.otf"); font-weight: 100; }
+
+@keyframes zoom-in-zoom-out {
+    0% {
+      background-size: 130%;
+      background-position: 50%;
+    }
+    50% {
+      background-size: 150%;
+      background-position-y: 40%;
+    }
+    100% {
+      background-size: 130%;
+      background-position: 50%;
+    }
+}
+
+@keyframes movingTriangles {
+    0% {
+        background-position-x: left;
+    }
+    50% {
+        background-position-x: right;
+    }
+    100% {
+        background-position-x: left;
+    }
+}
+
+:root {
+    --user-background-url: url("https://osu.ppy.sh/images/headers/profile-covers/c6.jpg");
+    --user-avatar-url: url("https://i.ppy.sh/5909dcab19c5f4d866da39ab5362bd046849b37c/68747470733a2f2f692e696d6775722e636f6d2f5165706e55347a2e6a7067");
+  }  
+
+.body{
+    transition: all 1.2s, background-color 1.5s;
+    background-size: 250%;
+    background-position: 50%;
+}
+
+.triangle {
+    display: flex;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url('https://osu.ppy.sh/../../assets/images/nav2-background-hue0.1aba1596.png');
+
+    background-position: bottom;
+        background-position-x: center;
+        background-position-y: top;
+    background-repeat: repeat-x;
+
+    filter: hue-rotate(255deg);
+}
+
+.navbar-bg{
+    margin: auto;
+    width: 100%;
+    max-width: 1200px;
+    height: 160px;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.7;
+    filter: blur(60px);
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    background-image: url('../../assets/images/osu-navbarbackground.jpg');
+}
+
+.navbar-bg-container{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 162px;
+    width: 100%; 
+    box-shadow: 0 1px 3px rgba(0,0,0,.25);
+    background-color: #221F2E
+}
+
+.navbar {
+    z-index: 10;
+    display: flex;
+    align-items: center;
+
+    width: calc(100% - 40px);
+    height: 110px;
+    max-width: 1000px;
+
+    margin-left: auto;
+    margin-right: auto; 
+
+    transform: translateZ(0);
+
+    font-family:"Torus";
+    font-size: 16px;
+    line-height: 1.25;
+    color: #fff;
+}
+
+.navbar-void{
+    padding-left: 43.5%;
+}
+
+.navbar-account{
+    z-index: 10;
+    top: 5px;
+    display:flex;
+    align-items: center;
+    transform: translateZ(-0);
+}
+
+.navbar-account-avatar{
+    z-index: 10;
+    background-image: var(--user-avatar-url);
+    width: 60px;
+    height: 60px;
+    box-shadow: none;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: width .3s,height .3s;
+    position: relative;
+    display: inline-block;
+    margin-right: 5px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.navbar-account-avatar:hover{
+    outline-style: solid;
+    outline-color: #C2B8E0;
+}
+
+.navbar-account-widget{
+    display: flex;
+    align-items: center;
+    border-radius: 40px;
+    padding: 5px;
+    margin: 5px;
+    height: 28px;
+    width: 28px;
+}
+
+.navbar-account-widget:hover{
+    outline-color: #C2B8E0;
+    background-color: rgba(0,0,0,.25);
+
+    outline-style: solid;
+}
+
+.navbar-account-body{
+    display: flex;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.25);
+    background: #302e38a2;
+    align-items: center;
+
+    height: 65%;
+    width: 21%;
+}
+
+.popup{
+    z-index: 10;
+    position: absolute;
+    top: -10%;
+    right: 100%;
+    height: 0;
+
+    transition: width .3s,height .3s, right .3s, top .3s, opacity .3s;
+}
+
+.popup-user-container{
+    padding-bottom: 8px;
+    padding-top: 5px;
+}
+
+.popup-user-background{
+    background-image: var(--user-background-url);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+
+    align-items: center;
+    vertical-align: bottom;
+
+    width: auto;
+    height: 100px;
+}
+
+.popup-user-avatar{
+    z-index: 10;
+    background-image: var(--user-avatar-url);
+    width: 60px;
+    height: 60px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.25);
+    border-radius: 50%;
+    overflow: hidden;
+    transition: width .3s,height .3s;
+    position: relative;
+    display: inline-block;
+    margin-left: 32%;
+    margin-top: 5%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.popup-user-footer{
+    transform: translateZ(0);
+    align-items: center;
+}
+
+.popup-user-name{
+    position: absolute;
+    font-family:"Torus";
+    font-size: 20px;
+    color: #fff;
+    top: -5px;
+}
+
+.popup-buttons-container{
+    z-index: 10;
+    padding-top: 6px;
+    align-items: center;
+}
+
+.popup-desc {
+    display: flex;
+    height: auto;
+    margin-bottom: 10px;
+    translate: z(0);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+}
+
+.popup-button{
+    z-index: 10;
+    width: auto;
+    height: 30px;
+    margin: 3px;
+    border-radius: 5px;
+    background-color: #24222A;
+    
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    transition: all .3s;
+    font-family:"Torus";
+    font-size: 14px;
+    text-align: center;
+}
+
+.popup-button:hover{
+    background-color: #2E293D;
+    color: #C2B8E0;
+}
+
+.popup-button-text{
+    flex: 1;
+    font-size: 14px;
+    font-weight: 700;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar-account-dropdown{
+    margin-top: 0;
+    max-width: 400px;
+    width: 180px;
+    padding: 5px 5px;
+    border: 1px solid #3D3946;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.5);
+    background-color: #302e38b3;
+}
+
+.parameter-button{
+    z-index: 10;
+    width: auto;
+    height: 30px;
+    margin: 3px;
+    border-radius: 5px;
+    background-color: #24222A;
+    
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    transition: all .3s;
+    font-family:"Torus";
+    font-size: 14px;
+    text-align: center;
+}
+
+.parameter-categorie-title{
+    outline-style: none;
+    display: block;
+    color: #C2B8E0;
+    font-size: 16px;
+    font-style: normal;
+    padding-left: 5px;
+    margin: 5px 0 10px;
+    font-weight: 700;
+    width: auto;
+    height: auto;
+}
+
+.parameter-button-dot{
+    position: relative;
+    background-color: rgb(227, 76, 76);
+    transition: all 0.6s;
+    border-radius: 50px;
+    height: 10px;
+    width: 10px;
+    left: 5%;
+}
+
+.parameter-button:hover{
+    background-color: #2E293D;
+    color: #C2B8E0;
+}
+
+.icon-twitter{
+    background-image: url("../../assets/icons/twitter.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    top: 2px;
+    left: 4px;
+}
+
+.icon-mania{
+    background-image: url("../../assets/icons/mania.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    width: 20px;
+    height:20px;
+    left:4px;
+}
+
+.icon-github{
+    background-image: url("../../assets/icons/github.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    left: 15%;
+    filter: sepia(255) brightness(150);
+}
+
+.icon-discord{
+    background-image: url("../../assets/icons/discord.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    left: 15%;
+    filter: sepia(255) brightness(150);
+}
+
+.icon-lock{
+    background-image: url("../../assets/icons/lock.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    left: 25px;
+    filter: invert();
+}
+
+.icon-parameter{
+    background-image: url("../../assets/icons/parameter.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    left: 25px;
+    filter: invert();
+}
+
+.osu-logo{
+    position: relative;
+    left: 0;
+    top: 0;
+
+    height: 60px;
+    width: 60px;
+    margin-right: 10px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: all .1s ease-in-out;
+    will-change: opacity,transform;
+
+    background-image: url('../../assets/icons/OsuLogo2White.webp');
+}
+
+.osu-logo:hover{
+    background-image: url('../../assets/icons/Osulogo.png');
+}
+
+.button{
+    color: #fff;
+    text-decoration: none;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    font-family:"Torus";
+    font-size: 14px;
+}
+
+.button:hover{
+    color: #C2B8E0;
+    filter:brightness(150px);
+}
+
+.button-bold{
+    color: #fff;
+    text-decoration: none;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    font-family:"Torus";
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.button-dot{
+    position: absolute;
+    top: 100%;
+    margin-top: 5px;
+    height: 3px;
+    border-radius: 10px;
+    width: 100%;
+    display: block;
+    background-color: #8C66FF
+}
+
+.relative{
+    position: relative;
+}
+
+.fheader-content{
+    width: calc(100% - 40px);
+    max-width: 1000px;
+
+    position: relative;
+    top: -10px;
+
+    margin-left: auto;
+    margin-right: auto; 
+
+    font-family:"Torus";
+    font-size: 16px;
+    line-height: 1.25;
+    color: #fff;
+}
+
+.fheader-row{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    font-size: 20px;
+    height: 55px;
+    background-color: #221F2E;
+
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.fheader-row-title{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 10px;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.fheader-content-logo{
+
+    background-size: contain;
+    background-image: url('https://osu.ppy.sh/../../assets/images/home.03d09fb9.svg');
+    background-repeat: no-repeat;
+    background-position: 50%;
+        background-position-x: 50%;
+        background-position-y: center;
+
+    align-self: stretch;
+
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+
+    flex: none;
+    background-size: 75%;
+}
+
+.fbar-content{
+    width: calc(100% - 40px);
+    max-width: 1000px;
+
+    position: relative;
+    top: -10px;
+
+    margin-left: auto;
+    margin-right: auto; 
+
+    font-family:"Torus";
+    font-size: 16px;
+    line-height: 1.25;
+    color: #fff;
+}
+
+.fbar-row{
+    display: flex;
+
+    font-size: 20px;
+    height: 44px;
+    background-color: #2E293D;
+
+    align-items: center;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.fbar-row-button-dot{
+    position: absolute;
+    top: 100%;
+    margin-top: 5px;
+    height: 4px;
+    border-radius: 10px;
+    width: 100%;
+    display: block;
+    background-color: #8C66FF
+}
+
+.fpage{
+    width: calc(100% - 40px);
+    max-width: 1000px;
+
+    position: relative;
+    top: -10px;
+
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+.fpage-home{
+    padding-left: 55px;
+    margin-bottom: 10px;
+    flex-direction: row;
+    align-items: flex-start;
+
+    box-shadow: 0 1px 3px rgba(0,0,0,.25);
+    display: flex;
+    background: #24222A;
+
+    font-family: "Torus";
+    font-size: 10px;
+    line-height: 1.25;
+    color: #fff;
+
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    
+}
+
+.fpage-home-news{
+    padding-right: 10px;
+    width: calc(60% - 10px);
+}
+
+.fpage-home-news-title{
+    padding-left: 0;
+    margin: 0;
+    padding: 20px 0 10px 10px;
+    font-size: 20px;
+    font-weight: normal;
+    color: #C2B8E0;
+    display: flex;
+    align-items: flex-end;
+}
+
+.fpage-home-news-more{
+    display: flex;
+    border-radius: 10px;
+    background-color: #302E38;
+    height: 65px;
+    width: auto;
+    margin-bottom: 10px;
+    color:#C2B8E0;
+    font-size: 20px;
+}
+
+.fpage-home-news-more:hover
+{
+    background-color: #2E293D;
+    color: #FFFFFF;
+}
+
+.fpage-home-news-morebutton-title{
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 20px 10px 10px;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    font-size: 20px;
+}
+
+.post{
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.25);
+    margin-bottom: 10px;
+    background: #302E38;
+}
+
+.post:hover {
+    background: #2E293D;
+}
+
+.post-image{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    width: 100%;
+    height: 130px;
+    background-size: cover;
+    background-position: 50%;
+    display: block;
+    background-color: #18171C;
+}
+
+.post-body{
+    display: flex;
+    height: auto;
+    margin-bottom: 10px;
+    translate: z(0);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.post-body-spec{
+    flex: 0 0 60px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 60px;
+    border-right: 1px solid #C2B8E0;
+    
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 2px;
+    margin-left: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    color: #C2B8E0;
+    padding-right: 10px;
+    overflow: hidden;
+    text-align: right;
+    width: 50px;
+}
+
+.post-body-date-prev{
+    color: #C2B8E0;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.post-body-date-month-year{
+    color: #C2B8E0;
+    font-size: 11px;
+}
+
+.post-body-medals{
+    padding-top: 2px;
+    display: flex;
+    transform: translateZ(0);
+    height: 15px;
+    width: auto;
+}
+
+.medal{
+    display:block;
+    background-size: cover;
+    background-position: 50%;
+    width: 15px;
+    height: 15px;
+    transition: all 0.6s;
+}
+
+.post-body-text-container{
+    margin-right: 10px;
+    width: auto;
+}
+
+.post-body-text-title{
+    outline-style: none;
+    display: block;
+    color: #fff;
+    font-size: 16px;
+    font-style: normal;
+    margin: 5px 0 10px;
+    font-weight: 700;
+    width: auto;
+    height: auto;
+}
+
+.post-body-text-description{
+    line-height: 1.35;
+    font-size: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.fpage-home-sidebar{
+    box-shadow: 0 1px 3px rgba(0,0,0,.25);
+    margin: 10px;
+    width: calc(35% - 10px);
+    padding: 20px 10px 10px;
+    background-color: #302E38;
+    border-radius: 10px;
+}
+
+.fpage-home-sidebar-box-status{
+    padding-bottom: 20px;
+}
+
+.fpage-home-sidebar-status{
+    display: flex;
+    flex-wrap: wrap;
+    color: #FFFFFF;
+    margin: -10px;
+}
+
+.fpage-home-sidebar-status-item{
+    padding: 10px;
+}
+
+.fpage-home-sidebar-status-item-label{
+    font-size: 10px;
+    font-weight: 400;
+}
+
+.fpage-home-sidebar-status-item-value{
+    color: #C2B8E0;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.fpage-home-button{
+    text-decoration: none;
+    color: #fff;
+    border-radius: 6px;
+    background-image: url('https://osu.ppy.sh/../../assets/images/button.16de7c2c.svg');
+    background-size: 175%;
+    background-position: 50%;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    
+    height: 30px;
+
+    transition: all .12s ease-in-out;
+        transition-property: all;
+        transition-duration: 0.12s;
+        transition-timing-function: ease-in-out;
+        transition-delay: 0s;
+
+    transform: translateZ(0);
+    --colour-h: 200;
+    --colour-s: 60;
+    --colour-l: 50;
+    --bg-l-adjust: 0%;
+    --bg-move: 0px;
+    border-bottom: 3px;
+    --move: 0px;
+    --inset-colour: hsl(var(--colour-h),var(--colour-s),calc(var(--colour-l) - 10%));
+    transform: translateY(0px);
+    background-position: calc(50% + 0px) 50%;
+    box-shadow: 0 calc(3px - 0px) var(--inset-colour),0 calc(3px + 1px - 0px) 3px rgba(0,0,0,.25);
+}
+
+.fpage-home-ybutton{
+    text-decoration: none;
+    color: #fff;
+    border-radius: 6px;
+    background-image: url('https://osu.ppy.sh/../../assets/images/button.16de7c2c.svg');
+    background-size: 175%;
+    background-position: 50%;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    
+    height: 30px;
+
+    transition: all .12s ease-in-out;
+        transition-property: all;
+        transition-duration: 0.12s;
+        transition-timing-function: ease-in-out;
+        transition-delay: 0s;
+
+    transform: translateZ(0);
+    --colour-h: 200;
+    --colour-s: 60;
+    --colour-l: 50;
+    --bg-l-adjust: 0%;
+    --bg-move: 0px;
+    border-bottom: 3px;
+    --move: 0px;
+    --inset-colour: hsl(var(--colour-h),var(--colour-s),calc(var(--colour-l) - 10%));
+    transform: translateY(0px);
+    background-position: calc(50% + 0px) 50%;
+    box-shadow: 0 calc(3px - 0px) var(--inset-colour),0 calc(3px + 1px - 0px) 3px rgba(0,0,0,.25);
+}
+
+.fpage-home-button:hover{
+    background-position: 80%;
+    color:cornsilk;
+}
+
+.fpage-home-ybutton:hover{
+    background-image: url("../../assets/images/special/patpat.gif");
+    background-size: 100%;
+    background-position: 80%;
+    background-position-y: 30%;
+}
+
+.fpage-home-button-text{
+    flex: 1;
+    font-size: 14px;
+    font-weight: 700;
+    --colour-h: var(--colour-blue-hue);
+    --colour-s: var(--c-saturation-3);
+    --colour-l: var(--c-lightness-3);
+    --bg-l-adjust: 0%;
+    --bg-move: 0px;
+    border-bottom: 3px;
+    --move: 0px;
+}
+
+
+.fpage-home-sidebar-beatmap-box{
+    padding-bottom: 10px;
+}
+
+.fpage-home-sidebar-beatmap-headertitle{
+    margin: 0;
+    padding: 20px 0 10px;
+    font-size: 16px;
+    color: #C2B8E0;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.fpage-home-sidebar-box-beatmapset{
+    margin: -10px 0;
+
+}
+
+.beatmap{
+    display: flex;
+    background-color: #221F2E;
+    border-radius: 10px;
+
+    transform: translateZ(0);
+    text-decoration: none;
+
+    padding-left: 10px;
+    padding-right: 10px;
+
+    margin-bottom: 5px;
+
+    width: calc(100% - 20px);
+}
+
+.beatmap:hover{
+    background-color: #2E293D;
+}
+
+.beatmap-cover{
+    width: 70px;
+    height: 60px;
+    border-radius: 10px;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    left: -10px;
+
+    background-position: 50%;
+    background-size: cover;
+    vertical-align: middle;
+    flex: none;
+}
+
+.beatmap-data{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    width: 150px;
+    padding: 0 5px;
+    color: #fff;
+    font-weight: 400;
+    min-width: 0;
+}
+
+.beatmap-data-title-container{
+    display: inline-flex;
+}
+
+.beatmap-data-name{
+    font-size: 16px;
+    top: -10px;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+}
+
+.beatmap-data-author{
+    font-size: 12px;
+    margin-top: -3px;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+}
+
+.beatmap-data-others{
+    font-size: 10px;
+    margin-top: 2px;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+}
+
+.beatmap-data-others-datecreated{
+    color:#C2B8E0;
+}

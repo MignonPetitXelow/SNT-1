@@ -1,0 +1,14 @@
+{
+  "name": "osu-snt-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node run index.js "
+  },
+  "author": "Xelow",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

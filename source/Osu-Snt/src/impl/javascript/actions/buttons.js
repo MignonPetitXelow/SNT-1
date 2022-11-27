@@ -39,7 +39,7 @@ function accountPopUp() {
     }
 }
 
-function secretSettings() { 
+function secretSettings(sub='') { 
     secretSettingsActivate = !secretSettingsActivate;
     if(secretSettingsActivate) 
     {
@@ -49,7 +49,7 @@ function secretSettings() {
         if(seti_items[2]) document.getElementById('triangles').play();
         if(seti_items[3]) document.getElementById('circles').play();
 
-        document.getElementById('body').style.backgroundImage = 'url(../resources/background/osu/image'+Random(3)+'.png)'; // Faire une liste pour ca
+        document.getElementById('body').style.backgroundImage = 'url(../'+sub+'resources/background/osu/image'+Random(3)+'.png)'; // Faire une liste pour ca
         document.getElementById('body').style.backgroundRepeat = 'no-repeat';
         document.getElementById('body').style.backgroundSize = '130%';
         document.getElementById('body').style.backgroundColor = '#000000';
@@ -58,7 +58,7 @@ function secretSettings() {
         if(seti_items[2] || seti_items[3])
             document.getElementById('body').style.animation = 'zoom-in-zoom-out 0.325s ease infinite';
 
-        document.getElementById('secretsettings-icon-lock').style.backgroundImage = 'url(../resources/icons/unlock.png)';
+        document.getElementById('secretsettings-icon-lock').style.backgroundImage = 'url('+sub+'../resources/icons/unlock.png)';
     }
     else 
     {
@@ -77,9 +77,11 @@ function secretSettings() {
 
         document.getElementById('body').style.animation = '';
 
-        document.getElementById('secretsettings-icon-lock').style.backgroundImage = 'url(../resources/icons/lock.png)';
+        document.getElementById('secretsettings-icon-lock').style.backgroundImage = 'url('+sub+'../resources/icons/lock.png)';
     }
 }
+
+
 
 function playDiscordo() {
     warningMessage('Discord', 'https://discord.gg/8UCV8yEDcQ')
@@ -237,14 +239,17 @@ function warningAccept()
     window.location.href = waitingUrl;
 }
 
-function checkIfTrianglesOpening()
+var path='';
+function checkIfTrianglesOpening(sub='')
 {
+
+    path = sub;
     if((seti_items[2] || seti_items[3]) && !byPasseSongVolume)
     {
         volumeWarningMessage();
     }
     else{
-        secretSettings();
+        secretSettings(sub);
     }
 }
 
@@ -284,7 +289,7 @@ function volumeWarningAccept()
     document.getElementById('volumeWarning').style.height = '0px'
     document.getElementById('volumeWarning').style.width = '0px';
 
-    secretSettings();
+    secretSettings(path);
 }
 
 function volumeWarningDiscard()

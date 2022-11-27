@@ -1,0 +1,18 @@
+.config-button{
+    background: #5839b4;
+    color: aliceblue;
+    padding: 2px 4px;
+    border-radius: 5%;
+    text-decoration: none;
+}
+
+.config-button:hover{
+    background: #3f2981;
+    color: #C2B8E0;
+    border-radius: 1%;
+}
+
+.config-button-container{
+    margin-top: 5px;
+    padding-bottom: 10px;
+}

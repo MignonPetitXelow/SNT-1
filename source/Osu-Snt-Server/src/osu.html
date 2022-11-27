@@ -1,0 +1,49 @@
+<!DOCTYPE html><html>
+    <head>
+        <title> Osu! Home </title>
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" href="assets/style/osu.css">
+    </head>
+
+    <body class="body" style="background-color:rgb(28,28,28)">
+        <div class="navbar-bg-container" id="navbar"><div class="navbar-bg"></div></div>
+        <div class="triangle"></div>
+        <div class="navbar">
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"><div class="osu-logo"></div></a>
+            <a class="button" href="#"><span class="relative"> accueil <span class="button-dot"></span></span> </a>
+            <a class="button" href="#"><span class="relative"> developement </span> </a>
+            <a class="button" href="#"><span class="relative"> boutique </span> </a>
+
+            <span class="navbar-void"></span>
+
+            <div class="navbar-account-body">
+                <div class="navbar-account">
+                    <a class="navbar-account-widget" href="https://twitter.com/ImXelow"> <span class="icon-twitter"></span></a>
+                    <a class="navbar-account-widget" href="https://github.com/mignonpetitxelow"> <span class="icon-github"></span></a>
+                    <a class="navbar-account-widget" href="https://osu.ppy.sh"> <span class="icon-mania"></span></a>
+                    
+                    <span class="navbar-account-avatar" onclick="todo"></span>
+
+                    <div class="popup" id="usermenu" style="visibility: visible; transform: translateX(110%) translateY(-118%)">
+                        <div class="navbar-account-dropdown">
+                            <div class="popup-user-container" style="height: 227px;">
+                                <div class="popup-user-background" style="filter: blur(1px) brightness(80%);"></div>
+                                <div style="transform: translateY(-100px);">
+                                    <div class="popup-user-avatar"></div>
+                                        <div class="popup-user-footer">
+                                            <span id="username" class="popup-user-name" style="text-align: center; width:180px">Xelow</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div style="transform: translateY(-130px)">
+                                <a class="popup-button" href="http://localhost:1024/user"><span class="icon-github" style="background-image: url('https://osu.ppy.sh/images/icons/profile.svg')"></span><span class="popup-button-text">mon compte</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

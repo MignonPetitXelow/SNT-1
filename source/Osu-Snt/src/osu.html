@@ -1,8 +1,9 @@
 <!DOCTYPE html><html><head>
     <title> OSU C BI1 </title>
+
     <link rel="icon" type="image/x-icon" href="../resources/osu_no_background.png">
     <link rel="stylesheet" href="../src/impl/css/osu.css">
-
+    
     <!-- #JS.include -->
     <script src="../src/impl/javascript/osu.js"></script>
     <script src="../src/impl/javascript/actions/buttons.js"></script>
@@ -23,8 +24,9 @@
     <audio id="open-menu"><source src="../resources/audio/qol/menu-multiplayer-click.wav" type="audio/wav"></audio>
     <audio id="open-menu2"><source src="../resources/audio/qol/restart.wav" type="audio/wav"></audio>
     <audio id="click"><source src="../resources/audio/qol/key-press-1.mp3" type="audio/mpeg"></audio>
+    <audio id="audioInput"><source id="audioSrc" src="../resources/audio/qol/key-press-1.mp3" type="audio/mpeg"></audio>
 
-
+    <a id="username-prof"></a>
     <div class="navbar-bg-container" id="navbar"><div class="navbar-bg"></div></div>
     <div class="triangle"></div>
     <div class="navbar">
@@ -41,29 +43,32 @@
                 <a class="navbar-account-widget" href="https://github.com/mignonpetitxelow" onmouseover="playSong('click')"><!-- Github icon--> <span class="icon-github"></span></a>
                 <a class="navbar-account-widget" href="https://osu.ppy.sh/home" onmouseover="playSong('click')"><!-- Osu icon--><span class="icon-mania"></span></a>
                 
-                <button class="navbar-account-avatar" onclick="accountPopUp()" onmouseover="playSong('click')"></button>
+                <span class="navbar-account-avatar" onclick="accountPopUp()" onmouseover="playSong('click')"></span>
 
                 <div class="popup" id="usermenu" style="visibility: hidden; transform: translateX(110%) translateY(-118%)">
                     <div class="navbar-account-dropdown">
-                        <div class="popup-user-container">
-                            <div class="popup-user-background">
+                        <div class="popup-user-container" style="height: 227px;">
+                            <div class="popup-user-background" style="filter: blur(1px) brightness(80%);"></div>
+                            <div style="transform: translateY(-100px);">
                                 <div class="popup-user-avatar"></div>
-                                <div class="popup-user-footer">
-                                    <span class="popup-user-name">Guest</span>
+                                    <div class="popup-user-footer">
+                                        <span id="username" class="popup-user-name"></span>
                                 </div>
                             </div>
+                            <div style="transform: translateY(-70px);">
+                        
+                                <a class="popup-button" href="./user/user.html"><span class="icon-github" style="background-image: url('https://osu.ppy.sh/images/icons/profile.svg')"></span><span class="popup-button-text">mon compte</span></a>
+                                <a class="popup-button" onclick="warningMessage('github', 'https\:\/\/github.com/mignonpetitxelow/snt-1');"  href="#"><span class="icon-github"></span><span class="popup-button-text">projet github</span></a>
+                                <a class="popup-button" onclick="checkIfTrianglesOpening()" href="#"><span class="icon-lock" id="secretsettings-icon-lock"></span><span class="popup-button-text">option secrete</span> 
+                                    <audio id="welcometoosu"><source src="../resources/audio/osu_welcome.mp3" type="audio/mpeg"></audio>
+                                    <audio id="triangles"><source src="../resources/audio/songs/cYsmix - Triangles.mp3" type="audio/mpeg"></audio>
+                                    <audio id="circles"><source src="../resources/audio/songs/Nekodex - Circles!.mp3" type="audio/mpeg"></audio>
+                                    <audio id="seeya"><source src="../resources/audio/seeya.mp3" type="audio/mpeg"></audio>
+                                </a>
+                                <a class="popup-button" onclick="playDiscordo()" href="#"><span class="icon-discord"></span><span class="popup-button-text">discord</span>
+                                </a>
+                            </div>
                         </div>
-
-                        <a class="popup-button" onclick="warningMessage('github', 'https\:\/\/github.com/mignonpetitxelow/snt-1');"  href="#"><span class="icon-github"></span><span class="popup-button-text">projet github</span></a>
-                        <a class="popup-button" onclick="checkIfTrianglesOpening()" href="#"><span class="icon-lock" id="secretsettings-icon-lock"></span><span class="popup-button-text">option secrete</span> 
-                            <audio id="welcometoosu"><source src="../resources/audio/osu_welcome.mp3" type="audio/mpeg"></audio>
-                            <audio id="triangles"><source src="../resources/audio/songs/cYsmix - Triangles.mp3" type="audio/mpeg"></audio>
-                            <audio id="circles"><source src="../resources/audio/songs/Nekodex - Circles!.mp3" type="audio/mpeg"></audio>
-                            <audio id="seeya"><source src="../resources/audio/seeya.mp3" type="audio/mpeg"></audio>
-                        </a>
-                        <a class="popup-button" onclick="playDiscordo()" href="#"><span class="icon-discord"></span><span class="popup-button-text">discord</span>
-                        </a>
-
                         <a class="popup-button" onclick="showParameter(true);"  href="#"><span class="icon-parameter" ></span><span class="popup-button-text">parametres</span></a>
                     </div>
                 </div>

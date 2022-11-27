@@ -5,7 +5,7 @@ function cookie_setCookie(name, value, exdays)
 
     let expires = "expires="+ d.toUTCString();
 
-    document.cookie = name + "=" + value + ";" + expires + ";path=/; SameSite=None; Secure";
+    document.cookie = name + "=" + value + ";" + expires + ";path=/; SameSite=Lax; Secure";
 }
 
 function cookie_getCookie(cookieName) 

@@ -26,15 +26,24 @@ const strTobol = (stringValue) =>
 function seti_forceValue(index=0, value=false) { if(value==null) seti_items[index]=false; seti_items[index] = value; }
 function seti_Inverse(index=0) { 
     seti_items[index] = !seti_items[index]; 
-    cookie_setCookie('parameter_'+index, seti_items[index], 1)
+    cookie_setCookie('parameter_'+index, seti_items[index], 155)
 }
 
 function export_parameters()
 {
     for(var i=0; i<seti_items.length; i++)
     {
-        cookie_setCookie('parameter_'+i, seti_items[i], 1);
+        cookie_setCookie('parameter_'+i, seti_items[i], 155);
     }
+}
+function export_user()
+{
+    for(var i=0; i<user.length; i++)
+    {
+        cookie_setCookie('user_'+i, user[i], 155);
+    }
+
+    
 }
 
 function import_parameters() 

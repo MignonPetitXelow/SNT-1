@@ -1,0 +1,244 @@
+<!DOCTYPE html><html><head>
+    <title> OSU C BI1 </title>
+    <link rel="icon" type="image/x-icon" href="../../resources/osu_no_background.png">
+    <link rel="stylesheet" href="../../src/impl/css/osu.css">
+    <link rel="stylesheet" href="../impl/css/user.css">
+    <link rel="stylesheet" href="../impl/css/config.css">
+
+    <!-- #JS.include -->
+    <script src="../../src/impl/javascript/osu.js"></script>
+    <script src="../../src/impl/javascript/actions/buttons.js"></script>
+    <script src="../../src/impl/javascript/audio/player.js"></script>
+    <script src="../../src/impl/javascript/settings/settings.js"></script>
+    <script src="../../src/impl/javascript/cookies/cookie.js"></script>
+    <script src="../../src/impl/javascript/graphic/update.js"></script>
+    <script src="../../src/impl/javascript/actions/notifications.js"></script>
+    <script src="../impl/javascript/cookies/usr_inf_update.js"></script>
+
+    <meta charset="utf-8"/>
+</head>
+
+<body class="body" style="background-color:rgb(28, 28, 28)" id="body"> 
+    
+    <!-- AUDIO -->
+    <audio id="accept"><source src="../../resources/audio/qol/menu-back-click.wav" type="audio/wav"></audio>
+    <audio id="deny"><source src="../../resources/audio/qol/menu-charts-click.wav" type="audio/wav"></audio>
+    <audio id="notification"><source src="../../resources/audio/qol/back-button-hover.wav" type="audio/wav"></audio>
+    <audio id="open-menu"><source src="../../resources/audio/qol/menu-multiplayer-click.wav" type="audio/wav"></audio>
+    <audio id="open-menu2"><source src="../../resources/audio/qol/restart.wav" type="audio/wav"></audio>
+    <audio id="click"><source src="../../resources/audio/qol/key-press-1.mp3" type="audio/mpeg"></audio>
+
+
+    <div class="navbar-bg-container" id="navbar"><div class="navbar-bg"></div></div>
+    <div class="triangle" style="filter: hue-rotate(266deg);"></div>
+    <div class="navbar">
+        <a href="../osu.html"><div class="osu-logo"></div></a>
+        <a class="button" href="../osu.html" onmouseover="playSong('click')"> <span class="relative"> accueil</span> </a>
+        <a class="button" href="#" onmouseover="playSong('click')"> <span class="relative"> developement </span> </a>
+        <a class="button" href="#" onmouseover="playSong('click')"> <span class="relative"> boutique </span> </a>
+
+        <span class="navbar-void"></span>
+
+        <div class="navbar-account-body">
+            <div class="navbar-account">
+                <a class="navbar-account-widget" onmouseover="playSong('click')"><!-- Twitter icon--> <span class="icon-twitter"></span></a>
+                <a class="navbar-account-widget" href="https://github.com/mignonpetitxelow" onmouseover="playSong('click')"><!-- Github icon--> <span class="icon-github"></span></a>
+                <a class="navbar-account-widget" href="https://osu.ppy.sh/home" onmouseover="playSong('click')"><!-- Osu icon--><span class="icon-mania"></span></a>
+                
+                <span class="navbar-account-avatar" onclick="accountPopUp()" onmouseover="playSong('click')"></span>
+
+                <div class="popup" id="usermenu" style="visibility: hidden; transform: translateX(110%) translateY(-118%)">
+                    <div class="navbar-account-dropdown">
+
+                        <div class="popup-user-container" style="height: 200px;">
+                            <div class="popup-user-background" style="filter: blur(1px) brightness(80%);"></div>
+                            <div style="transform: translateY(-100px);">
+                                <div class="popup-user-avatar"></div>
+                                    <div class="popup-user-footer">
+                                        <span id="username-prof" class="popup-user-name"></span>
+                                </div>
+                            </div>
+                            <div style="transform: translateY(-70px);">
+                                <a class="popup-button" onclick="warningMessage('github', 'https\:\/\/github.com/mignonpetitxelow/snt-1');"  href="#"><span class="icon-github"></span><span class="popup-button-text">projet github</span></a>
+                                <a class="popup-button" onclick="playDiscordo()" href="#"><span class="icon-discord"></span><span class="popup-button-text">discord</span>
+                                </a>
+
+                                <a class="popup-button" onclick="showParameter(true);"  href="#"><span class="icon-parameter" ></span><span class="popup-button-text">parametres</span></a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="popup" id="parametermenu" style="visibility: hidden; transform: translateX(100%) translateY(-118%);">
+                    <div class="navbar-account-dropdown">
+                        <div class="popup-user-container">
+                            <div class="popup-user-background" style="background-image: url('../../resources/background/osu/image0.png');">
+                                <div class="popup-user-avatar" style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/d/dc/Settings-icon-symbol-vector.png); filter: invert();"></div>
+                                <div class="popup-user-footer">
+                                    <span class="popup-user-name" style="margin-left: calc(100% - 80%);">Parametres</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <span class="parameter-categorie-title"> Generales </span>
+
+                        <a class="parameter-button" href="#" onclick="testButton()">
+                            <span class="parameter-button-dot" id="settings-button-dot"></span>
+                            <span class="popup-button-text">Test</span>
+                        </a>
+
+                        <a class="parameter-button" href="#" onclick="playNo()">
+                            <span class="parameter-button-dot"></span>
+                            <span class="popup-button-text">Desac easter eggs</span>
+                            <audio id="no"><source src="../r../esources/audio/no.mp3" type="audio/mpeg"></audio>
+                        </a>
+
+                        <a class="parameter-button" href="#" onclick="activeSong()">
+                            <span class="parameter-button-dot", id="active-song-button-dot"></span>
+                            <span class="popup-button-text">Activé le son</span>
+                        </a>
+
+                        <span class="parameter-categorie-title"> Affichage </span>
+
+                        <a class="parameter-button" href="#" onclick="showPostBadges()">
+                            <span class="parameter-button-dot" id="medals-settings-dot" style="background-color: rgb(89, 231, 103);"></span>
+                            <span class="popup-button-text">Medailles de poste</span>
+                        </a>
+
+                        <span class="parameter-categorie-title"> Amusement </span>
+                        
+                        <a class="parameter-button" href="#" onclick="circlesOpening()">
+                            <span class="parameter-button-dot", id="circles-button-dot"></span>
+                            <span class="popup-button-text">Circles Opening</span>
+                        </a>
+
+                        <a class="parameter-button" href="#" onclick="trianglesOpening()">
+                            <span class="parameter-button-dot", id="triangles-button-dot"></span>
+                            <span class="popup-button-text">Triangles Opening</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="popup" id="warning" style="visibility: hidden; transform: translateX(110%) translateY(-118%)">
+                    <div class="navbar-account-dropdown">
+                        <div class="popup-user-container">
+                            <div class="popup-user-background" style="background-image: url('https://osu.ppy.sh/assets/images/button.16de7c2c.svg'); background-size: 175%; background-color: crimson;">
+                                <div class="popup-user-avatar" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/TPMS_warning_icon.svg/2560px-TPMS_warning_icon.svg.png'); filter: invert(); background-position: 50%; box-shadow: none;"></div>
+                                <div class="popup-user-footer">
+                                    <span class="popup-user-name" style="margin-left: calc(100% - 76%)">Attention!</span>
+                                </div>
+                            </div>
+                            <div class="post-body-text-container" style="margin: auto;">
+                                <span class="popup-desc" id="warningText">Etes-vous sur de vouloir vous connecté a se site?</span>
+                            </div>
+                            <a class="popup-button" onclick="warningAccept()" style="background-image: url('https://osu.ppy.sh/assets/images/button.16de7c2c.svg'); background-size: 175%; background-color: crimson; animation: movingTriangles 5s ease infinite;"><span class="popup-button-text">Oui</span></a>
+                            <a class="popup-button" onclick="warningDiscard()"><span class="popup-button-text">Non</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="popup" id="volumeWarning" style="visibility: hidden; transform: translateX(110%) translateY(-118%)">
+                    <div class="navbar-account-dropdown">
+                        <div class="popup-user-container">
+                            <div class="popup-user-background" style="background-image: url('https://osu.ppy.sh/assets/images/button.16de7c2c.svg'); background-size: 175%; background-color: darkorchid;">
+                                <div class="popup-user-avatar" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Speaker_Icon.svg/768px-Speaker_Icon.svg.png'); filter: invert(); background-position: 50%; box-shadow: none;"></div>
+                                <div class="popup-user-footer">
+                                    <span class="popup-user-name" style="margin-left: calc(100% - 76%)">Attention!</span>
+                                </div>
+                            </div>
+                            <div class="post-body-text-container" style="margin: auto;">
+                                <span class="popup-desc" id="warningText">Le mode musique pour l'opening est activé</span>
+                            </div>
+                            <a class="popup-button" onclick="volumeWarningAccept()" style="background-image: url('https://osu.ppy.sh/assets/images/button.16de7c2c.svg'); background-size: 175%; background-color: darkorchid; animation: movingTriangles 5s ease infinite;"><span class="popup-button-text">Suivant</span></a>
+                            <a class="popup-button" onclick="volumeWarningDiscard()"><span class="popup-button-text">Retour</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="popup">
+                <span id="notification-title"></span>
+                <span id="notification-desc"></span>
+            </div>
+        </div>
+    </div>
+
+    <div id="base-contents">
+        <div class="fheader-content">
+            <div class="fheader-row">
+                <div class="fheader-row-title">
+                    <div class="fheader-content-logo" style="background-image: url('https://osu.ppy.sh/assets/images/profile.c681ffeb.svg');"></div>
+                    <div>information du joueur</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fbar-content">
+        <div class="fbar-row">
+            <a class="button" href="./user.html"><span class="relative">infos</span></a>
+            <a class="button" href="https://www.youtube.com/watch?v=QMSlbs9QrB4&ab_channel=JoyBoy"><span class="relative">playlists</span></a>
+            <a class="button-bold" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"><span class="relative">parametres<span class="fbar-row-button-dot" style="background-color: #da42f5;"></span></span></a>
+        </div>
+    </div>
+
+    <div class="profile-details-container">
+        <div class="profile-background"></div>
+        <div class="profile-details">
+            <span class="popup-user-avatar" style="width: 70px; height: 70px; border-radius: 35%; margin-top: 1px; margin-left: 0px"></span>
+            <div class="profile-details-infos">
+                <span id="username" class="profile-details-infos__name"></span>
+                <span id="user-coutry-flag" class="profile-details-infos__flag"></span>
+                <span id="user-coutry" class="profile-details-infos__flag-title" style="top: -23px; left: 32px;"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-infos-container">
+        <div style="margin: 0px 50px; font-size: 16px; display: flex; flex-direction: column; min-width: 60px; gap: 5px;">  
+            <div style="grid-template-columns: auto auto; font-size: 12px; display: grid; gap: 4px 20px;">
+                <dl class="profile-infos-details-entry">
+                    <dt class="profile-infos-details-entry__key">Nom du compte</dt>
+                    <dl class="profile-infos-details-entry__value"><input type="text" id="in_username"></dl>
+                </dl>
+
+                <dl class="profile-infos-details-entry">
+                    <dt class="profile-infos-details-entry__key">Url de l'avatar</dt>
+                    <dl class="profile-infos-details-entry__value"><input type="url" id="avatar"></dl>
+                </dl>
+
+
+                <dl class="profile-infos-details-entry">
+                    <dt class="profile-infos-details-entry__key">Url du fond d'ecran</dt>
+                    <dl class="profile-infos-details-entry__value"><input type="url" id="background"></dl>
+                </dl>
+
+                <dl class="profile-infos-details-entry">
+                    <dt class="profile-infos-details-entry__key">Pays</dt>
+                    <dl class="profile-infos-details-entry__value">
+                        <select name="pays" id="country">
+                            <option value="1">France</option>
+                            <option value="2">Etat-Unis</option>
+                            <option value="3">Japon</option>
+                            <option value="4">Royaume-Uni</option>
+                        </select>
+                    </dl>
+                </dl>
+
+            
+            </div>
+
+            <div class="config-button-container">
+                <a class="config-button" href="#" onclick="submit()"> Submit</a>
+                <a class="config-button" href="#" onclick="done()">Done</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        start();
+        injectCountry('user-coutry');
+        
+    </script>
+</body>   

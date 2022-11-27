@@ -5,3 +5,6 @@ folium.map.html
 
 #copyright
 *.otf
+
+#NodeJS
+*node_modules

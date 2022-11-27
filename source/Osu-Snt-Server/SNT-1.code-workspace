@@ -1,0 +1,27 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"explorerExclude.backup": {},
+		"files.exclude": {
+			"**/.git": true,
+			"**/.svn": true,
+			"**/.hg": true,
+			"**/CVS": true,
+			"**/.DS_Store": true,
+			"**/Thumbs.db": true,
+			"**/**.asset": true,
+			"**/**.cs.meta": true,
+			"**/**.csproj": true,
+			"**/**.meta": true,
+			"source\\Osu-Snt-Server/node_modules": true,
+			"node_modules": true
+		}
+	}
+}
