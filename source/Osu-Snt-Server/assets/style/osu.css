@@ -1,7 +1,7 @@
-@font-face {font-family: "Torus" ; src: url("../../assets/fonts/Torus-Regular.otf"); font-weight: 400;}
-@font-face {font-family: "Torus"; src: url("../../assets/fonts/Torus-SemiBold.otf"); font-weight: 700;}
-@font-face { font-family: "Torus"; src: url("../../assets/fonts/Torus-Bold.otf"); font-weight: 800; }
-@font-face { font-family: "Torus"; src: url("../../assets/fonts/Torus-Light.otf"); font-weight: 100; }
+@font-face {font-family: "Torus" ; src: url("../fonts/Torus-Regular.otf"); font-weight: 400;}
+@font-face {font-family: "Torus"; src: url("../fonts/Torus-SemiBold.otf"); font-weight: 700;}
+@font-face { font-family: "Torus"; src: url("../fonts/Torus-Bold.otf"); font-weight: 800; }
+@font-face { font-family: "Torus"; src: url("../fonts/Torus-Light.otf"); font-weight: 100; }
 
 @keyframes zoom-in-zoom-out {
     0% {
@@ -31,7 +31,7 @@
 }
 
 :root {
-    --user-background-url: url("https://osu.ppy.sh/images/headers/profile-covers/c6.jpg");
+    --user-background-url: url("../images/background/osu/image1.png");
     --user-avatar-url: url("https://i.ppy.sh/5909dcab19c5f4d866da39ab5362bd046849b37c/68747470733a2f2f692e696d6775722e636f6d2f5165706e55347a2e6a7067");
   }  
 
@@ -167,6 +167,7 @@
 }
 
 .popup{
+    visibility: hidden;
     z-index: 10;
     position: absolute;
     top: -10%;
@@ -253,7 +254,11 @@
     text-decoration: none;
     display: flex;
     align-items: center;
+    text-align: center;
+    justify-content: center;
     vertical-align: middle;
+
+
     transition: all .3s;
     font-family:"Torus";
     font-size: 14px;
@@ -921,6 +926,8 @@
     height: 60px;
     left: -10px;
 
+    background-color: #18171C;
+    background-image: url(../icons/lazer.png);
     background-position: 50%;
     background-size: cover;
     vertical-align: middle;

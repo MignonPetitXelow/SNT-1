@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node run index.js "
+    "test": "node run index.js"
   },
   "author": "Xelow",
   "license": "ISC",

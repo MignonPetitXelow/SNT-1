@@ -1,9 +1,15 @@
 <!DOCTYPE html><html>
     <head>
-        <title> Osu! Home </title>
+        <title> Home </title>
         <meta charset="utf-8">
 
-        <link rel="stylesheet" href="assets/style/osu.css">
+        <link rel="stylesheet" href="../assets/style/osu.css">
+        <link rel="shortcut icon" href="assets/icons/lazer.png" type="image/x-icon">
+
+        <script src="../assets/js/Events/Actions.js">// Buttons events</script>
+        <script src="../assets/js/Preloader.js">// Preloader (useful to change player name byexemple)</script>
+
+        <script src="../assets/js/Data/Injection.js">// Inject different parameter to components</script>
     </head>
 
     <body class="body" style="background-color:rgb(28,28,28)">
@@ -23,9 +29,9 @@
                     <a class="navbar-account-widget" href="https://github.com/mignonpetitxelow"> <span class="icon-github"></span></a>
                     <a class="navbar-account-widget" href="https://osu.ppy.sh"> <span class="icon-mania"></span></a>
                     
-                    <span class="navbar-account-avatar" onclick="todo"></span>
+                    <span class="navbar-account-avatar" onclick="openUsrDrpDwnMnu();"></span>
 
-                    <div class="popup" id="usermenu" style="visibility: visible; transform: translateX(110%) translateY(-118%)">
+                    <div class="popup" id="usermenu" style="transform: translateX(110%) translateY(-118%)">
                         <div class="navbar-account-dropdown">
                             <div class="popup-user-container" style="height: 227px;">
                                 <div class="popup-user-background" style="filter: blur(1px) brightness(80%);"></div>
@@ -38,12 +44,259 @@
                             </div>
                             
                             <div style="transform: translateY(-130px)">
-                                <a class="popup-button" href="http://localhost:1024/user"><span class="icon-github" style="background-image: url('https://osu.ppy.sh/images/icons/profile.svg')"></span><span class="popup-button-text">mon compte</span></a>
+                                <a class="popup-button" href="/user/"><span class="icon-github" style="background-image: url('https://osu.ppy.sh/images/icons/profile.svg')"></span><span class="popup-button-text">mon compte</span></a>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="fheader-content">
+            <div class="fheader-row">
+                <div class="fheader-row-title">
+                    <div class="fheader-content-logo"></div>
+                    <div>accueil</div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="fbar-content">
+            <div class="fbar-row">
+                <a class="button-bold" href="osu.html"><span class="relative">accueil<span class="fbar-row-button-dot"></span></span></a>
+                <a class="button" href="https://www.youtube.com/watch?v=QMSlbs9QrB4&ab_channel=JoyBoy"><span class="relative">discord</span></a>
+            </div>
+        </div>
+        
+        <div class="fpage">
+            <div class="fpage-home">
+                <div class="fpage-home-news">
+                    <h2 class="fpage-home-news-title">News</h2>
+    
+    
+                    <div class="post">
+                        <a class="post-image" style="background-image: url('https://cdn.discordapp.com/attachments/1016674202641768538/1023926517786488902/AA619D3D-E27D-40EA-9B96-946F0698CCDA.jpg');"></a>
+                        <div class="post-body">
+                            <div class="post-body-spec">
+                                <div class="post-body-date-prev">9</div>
+                                <div class="post-body-date-month-year">Nov 2022</div>
+                                <div class="post-body-medals">
+                                    <a class="medal" id="medals" style="background-image: url('https://assets.ppy.sh/medals/web/all-secret-challenge_accepted@2x.png')"></a>
+                                </div>
+                            </div>
+        
+                            <div class="post-body-text-container">
+                                <a class="post-body-text-title">Ils essayent de faire un proces aux profs (gato)</a>
+                                    <p class="post-body-text-description">
+                                        J'avoue que je sais meme plus quoi dire la.. Bon c'est pas vrai mais t'inquiete
+                                    </p>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="post">
+                        <a class="post-image" style="background-image: url('https://www.pixelstalk.net/wp-content/uploads/images1/Best-Osu-Photos.png');"></a>
+                        <div class="post-body">
+                            <div class="post-body-spec">
+                                <div class="post-body-date-prev">8</div>
+                                <div class="post-body-date-month-year">Nov 2022</div>
+                                <div class="post-body-medals">
+                                    <a class="medal" id="medals1" style="background-image: url('https://assets.ppy.sh/medals/web/all-secret-stumbler@2x.png')"></a>
+                                    <a class="medal" id="medals2" style="background-image: url('https://assets.ppy.sh/medals/web/all-skill-highranker-4@2x.png')"></a>
+                                </div>
+                            </div>
+        
+                            <div class="post-body-text-container">
+                                <a class="post-body-text-title">Pourquoi Osu est le meilleur jeu de la planete</a>
+                                    <p class="post-body-text-description">
+                                        Gratuit et fort d'une très large communauté, OSU ! propose différents modes de jeu et de difficultés adaptés à tous types de joueurs. Un large choix de pistes musicales à télécharger est disponible et un mode « Edit » permet également de créer ses propres « Beatmaps » (ou musiques)
+                                    </p>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="post">
+                        <a class="post-image" style="background-image: url('https://assets.ppy.sh/beatmaps/1322727/covers/cover@2x.jpg?1650705701');"></a>
+                        <div class="post-body">
+                            <div class="post-body-spec">
+                                <div class="post-body-date-prev">7</div>
+                                <div class="post-body-date-month-year">Nov 2022</div>
+                            </div>
+        
+                            <div class="post-body-text-container">
+                                <a class="post-body-text-title">Pourquoi Usseewa devrait disparaitre de osu</a>
+                                    <p class="post-body-text-description">
+                                        Objectivement, le mappeur, c'est pas possible qu'il ce soit dis, "oh je pense que les gens vont s'amuser dessus" s'achant que meme le stream et le jump de galaxy collapse en EZ est plus drole a jouer.
+                                    </p>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <a class="fpage-home-news-more">
+                        <h1 class="fpage-home-news-morebutton-title">Voir plus</h1>
+                    </a>
+                </div>
+    
+                <div class="fpage-home-sidebar">
+                    <div class="fpage-home-sidebar-box-status">
+                        <div class="fpage-home-sidebar-status">
+                            <div class="fpage-home-sidebar-status-item">
+                                <div class="fpage-home-sidebar-status-item-label">Amis en ligne</div>
+                                <div class="fpage-home-sidebar-status-item-value">23</div>
+                            </div>
+    
+                            <div class="fpage-home-sidebar-status-item">
+                                <div class="fpage-home-sidebar-status-item-label">Parties</div>
+                                <div class="fpage-home-sidebar-status-item-value">727</div>
+                            </div>
+    
+                            <div class="fpage-home-sidebar-status-item">
+                                <div class="fpage-home-sidebar-status-item-label">Moyenne general</div>
+                                <div class="fpage-home-sidebar-status-item-value">Absent</div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    
+                    <a class="fpage-home-ybutton" style="background-color: #1C1817" href="https://osu.ppy.sh/beatmapsets/1322727#osu/2772363"><span class="fpage-home-button-text"> Idee 1 </span></a>
+                    <a class="fpage-home-button" style="background-color: #71bbd4" href="https://osu.ppy.sh/beatmapsets/1551060#osu/3171238"><span class="fpage-home-button-text"> Idee 2 </span></a>
+                    <a class="fpage-home-button" style="background-color: #A45EE5" href="https://osu.ppy.sh/beatmapsets/999999999#osu/"><span class="fpage-home-button-text"> Idee 3 </span></a>
+    
+                    <div class="fpage-home-sidebar-beatmap-box">
+                        <h3 class="fpage-home-sidebar-beatmap-headertitle">Meilleurs maps</h3>
+                        <div class="fpage-home-sidebar-box-beatmapset">
+    
+                            <a class="beatmap" href="https://osu.ppy.sh/beatmapsets/1013369#osu/2121051">
+                                <div class="beatmap-cover" style="background-image: url(https://assets.ppy.sh/beatmaps/1013369/covers/cover@2x.jpg?1622167235)"></div>
+                                <div class="beatmap-data">
+                                    <div class="beatmap-data-name">Osu Memories 2</div>
+                                    <div class="beatmap-data-author">SakiZ</div>
+                                    <div class="beatmap-data-others">
+                                        par
+                                        <span>Sotarks</span>
+                                        <span class="beatmap-data-others-datecreated">aout 2019</span>
+                                    </div>
+                                </div>
+                            </a>
+    
+                            <a class="beatmap" href="https://osu.ppy.sh/beatmapsets/1391659#osu/2873429">
+                                <div class="beatmap-cover" style="background-image: url(https://assets.ppy.sh/beatmaps/1391659/covers/cover.jpg?1621522886)"></div>
+                                <div class="beatmap-data">
+                                    <div class="beatmap-data-name">MariannE</div>
+                                    <div class="beatmap-data-author">Yooh</div>
+                                    <div class="beatmap-data-others">
+                                        par
+                                        <span>SilverYoko</span>
+                                        <span class="beatmap-data-others-datecreated">mars 2021</span>
+                                    </div>
+                                </div>
+                            </a>
+    
+                            <a class="beatmap" href="https://osu.ppy.sh/beatmapsets/712125#osu/1505448">
+                                <div class="beatmap-cover" style="background-image: url(https://assets.ppy.sh/beatmaps/712125/covers/cover.jpg)"></div>
+                                <div class="beatmap-data">
+                                    <div class="beatmap-data-name">TRY UNITE</div>
+                                    <div class="beatmap-data-author">Megumi Nakajima</div>
+                                    <div class="beatmap-data-others">
+                                        par
+                                        <span>Sotarks</span>
+                                        <span class="beatmap-data-others-datecreated">dec 2017</span>
+                                    </div>
+                                </div>
+                            </a>
+    
+                            <a class="beatmap" href="https://osu.ppy.sh/beatmapsets/1741968#osu/3561131">
+                                <div class="beatmap-cover" style="background-image: url(https://assets.ppy.sh/beatmaps/1741968/covers/cover.jpg)"></div>
+                                <div class="beatmap-data">
+                                    <div class="beatmap-data-name">Route blue</div>
+                                    <div class="beatmap-data-author">Yuki Nakashima</div>
+                                    <div class="beatmap-data-others">
+                                        par
+                                        <span>Kagayaki</span>
+                                        <span class="beatmap-data-others-datecreated">avr 2022</span>
+                                    </div>
+                                </div>
+                            </a>
+    
+                            <a class="beatmap" href="https://osu.ppy.sh/beatmapsets/1049835#osu/2232950">
+                                <div class="beatmap-cover" style="background-image: url(https://assets.ppy.sh/beatmaps/1049835/covers/cover.jpg)"></div>
+                                <div class="beatmap-data">
+                                    <div class="beatmap-data-name">Hitoribocchi no Monologue</div>
+                                    <div class="beatmap-data-author">Morishita Chisaki and Tanaka Minami and Kito Akari and Kurose Yuuko</div>
+                                    <div class="beatmap-data-others">
+                                        par
+                                        <span>Raytoly</span>
+                                        <span class="beatmap-data-others-datecreated">oct 2019</span>
+                                    </div>
+                                </div>
+                            </a>
+                            
+    
+                        </div>
+                    </div>
+    
+                    <div class="fpage-home-sidebar-beatmap-box">
+                        <h3 class="fpage-home-sidebar-beatmap-headertitle">Map que Jules dois faire</h3>
+                        <div class="fpage-home-sidebar-box-beatmapset">
+    
+                            <a class="beatmap" href="https://osu.ppy.sh/beatmapsets/3756#osu/22538">
+                                <div class="beatmap-cover"></div>
+                                <div class="beatmap-data">
+                                    <div class="beatmap-data-name">osu tutorial</div>
+                                    <div class="beatmap-data-author">Peter Lambert</div>
+                                    <div class="beatmap-data-others">
+                                        par
+                                        <span>peppy</span>
+                                        <span class="beatmap-data-others-datecreated">nov 2008</span>
+                                    </div>
+                                </div>
+                            </a>
+    
+                            <a class="beatmap" href="https://osu.ppy.sh/beatmapsets/966190#osu/2022409">
+                                <div class="beatmap-cover" style="background-image: url(https://assets.ppy.sh/beatmaps/966190/covers/cover.jpg)"></div>
+                                <div class="beatmap-data">
+                                    <div class="beatmap-data-name">Dancin</div>
+                                    <div class="beatmap-data-author">Aaron Smith feat. Luvli</div>
+                                    <div class="beatmap-data-others">
+                                        par
+                                        <span>Lian2002</span>
+                                        <span class="beatmap-data-others-datecreated">mai 2019</span>
+                                    </div>
+                                </div>
+                            </a>
+    
+                            <a class="beatmap" href="https://osu.ppy.sh/beatmapsets/1650892#osu/3370179">
+                                <div class="beatmap-cover" style="background-image: url(https://assets.ppy.sh/beatmaps/1650892/covers/cover.jpg)"></div>
+                                <div class="beatmap-data">
+                                    <div class="beatmap-data-name">padowo padowo</div>
+                                    <div class="beatmap-data-author">senzawa</div>
+                                    <div class="beatmap-data-others">
+                                        par
+                                        <span>PatatoDew</span>
+                                        <span class="beatmap-data-others-datecreated">dec 2021</span>
+                                    </div>
+                                </div>
+                            </a>
+                            
+                            <a class="beatmap" href="https://osu.ppy.sh/beatmapsets/1643641#osu/3371534">
+                                <div class="beatmap-cover" style="background-image: url(https://assets.ppy.sh/beatmaps/1643641/covers/cover.jpg)"></div>
+                                <div class="beatmap-data">
+                                    <div class="beatmap-data-name">Keseran Pasaran</div>
+                                    <div class="beatmap-data-author">Mewhan </div>
+                                    <div class="beatmap-data-others">
+                                        par
+                                        <span>Shunao</span>
+                                        <span class="beatmap-data-others-datecreated">dec 2021</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>PL_Init();</script>
     </body>
 </html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html><html><head>
+    <title> User </title>
+
+    <link rel="stylesheet" href="assets/style/osu.css">
+    <link rel="shortcut icon" href="assets/icons/lazer.png" type="image/x-icon">
+
+    <script src="assets/js/Events/Actions.js">// Buttons events</script>
+    <script src="assets/js/Preloader.js">// Preloader (useful to change player name byexemple)</script>
+
+    <script src="assets/js/Data/Injection.js">// Inject different parameter to components</script>
+
+    <meta charset="utf-8"/>
+</head>
+
+<body class="body" style="background-color:rgb(28, 28, 28)" id="body"> 
+    
+    <div class="navbar-bg-container" id="navbar"><div class="navbar-bg"></div></div>
+    <div class="triangle" style="filter: hue-rotate(266deg);"></div>
+    <div class="navbar">
+        <a href="/"><div class="osu-logo"></div></a>
+        <a class="button" href="/" onmouseover="playSong('click')"> <span class="relative"> accueil</span> </a>
+        <a class="button" href="#" onmouseover="playSong('click')"> <span class="relative"> developement </span> </a>
+        <a class="button" href="#" onmouseover="playSong('click')"> <span class="relative"> boutique </span> </a>
+
+        <span class="navbar-void"></span>
+
+        <div class="navbar-account-body">
+            <div class="navbar-account">
+                <a class="navbar-account-widget" onmouseover="playSong('click')"><!-- Twitter icon--> <span class="icon-twitter"></span></a>
+                <a class="navbar-account-widget" href="https://github.com/mignonpetitxelow" onmouseover="playSong('click')"><!-- Github icon--> <span class="icon-github"></span></a>
+                <a class="navbar-account-widget" href="https://osu.ppy.sh/home" onmouseover="playSong('click')"><!-- Osu icon--><span class="icon-mania"></span></a>
+                
+                <span class="navbar-account-avatar" onclick="accountPopUp()" onmouseover="playSong('click')"></span>
+
+                <div class="popup" id="usermenu" style="visibility: hidden; transform: translateX(110%) translateY(-118%)">
+                    <div class="navbar-account-dropdown">
+
+                        <div class="popup-user-container" style="height: 200px;">
+                            <div class="popup-user-background" style="filter: blur(1px) brightness(80%);"></div>
+                            <div style="transform: translateY(-100px);">
+                                <div class="popup-user-avatar"></div>
+                                    <div class="popup-user-footer">
+                                        <span id="username-prof" class="popup-user-name"></span>
+                                </div>
+                            </div>
+                            <div style="transform: translateY(-70px);">
+                                <a class="popup-button" onclick="warningMessage('github', 'https\:\/\/github.com/mignonpetitxelow/snt-1');"  href="#"><span class="icon-github"></span><span class="popup-button-text">projet github</span></a>
+                                <a class="popup-button" onclick="playDiscordo()" href="#"><span class="icon-discord"></span><span class="popup-button-text">discord</span>
+                                </a>
+
+                                <a class="popup-button" onclick="showParameter(true);"  href="#"><span class="icon-parameter" ></span><span class="popup-button-text">parametres</span></a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="popup" id="parametermenu" style="visibility: hidden; transform: translateX(100%) translateY(-118%);">
+                    <div class="navbar-account-dropdown">
+                        <div class="popup-user-container">
+                            <div class="popup-user-background" style="background-image: url('../../resources/background/osu/image0.png');">
+                                <div class="popup-user-avatar" style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/d/dc/Settings-icon-symbol-vector.png); filter: invert();"></div>
+                                <div class="popup-user-footer">
+                                    <span class="popup-user-name" style="margin-left: calc(100% - 80%);">Parametres</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <span class="parameter-categorie-title"> Generales </span>
+
+                        <a class="parameter-button" href="#" onclick="testButton()">
+                            <span class="parameter-button-dot" id="settings-button-dot"></span>
+                            <span class="popup-button-text">Test</span>
+                        </a>
+
+                        <a class="parameter-button" href="#" onclick="playNo()">
+                            <span class="parameter-button-dot"></span>
+                            <span class="popup-button-text">Desac easter eggs</span>
+                            <audio id="no"><source src="../r../esources/audio/no.mp3" type="audio/mpeg"></audio>
+                        </a>
+
+                        <a class="parameter-button" href="#" onclick="activeSong()">
+                            <span class="parameter-button-dot", id="active-song-button-dot"></span>
+                            <span class="popup-button-text">Activé le son</span>
+                        </a>
+
+                        <span class="parameter-categorie-title"> Affichage </span>
+
+                        <a class="parameter-button" href="#" onclick="showPostBadges()">
+                            <span class="parameter-button-dot" id="medals-settings-dot" style="background-color: rgb(89, 231, 103);"></span>
+                            <span class="popup-button-text">Medailles de poste</span>
+                        </a>
+
+                        <span class="parameter-categorie-title"> Amusement </span>
+                        
+                        <a class="parameter-button" href="#" onclick="circlesOpening()">
+                            <span class="parameter-button-dot", id="circles-button-dot"></span>
+                            <span class="popup-button-text">Circles Opening</span>
+                        </a>
+
+                        <a class="parameter-button" href="#" onclick="trianglesOpening()">
+                            <span class="parameter-button-dot", id="triangles-button-dot"></span>
+                            <span class="popup-button-text">Triangles Opening</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="popup" id="warning" style="visibility: hidden; transform: translateX(110%) translateY(-118%)">
+                    <div class="navbar-account-dropdown">
+                        <div class="popup-user-container">
+                            <div class="popup-user-background" style="background-image: url('https://osu.ppy.sh/assets/images/button.16de7c2c.svg'); background-size: 175%; background-color: crimson;">
+                                <div class="popup-user-avatar" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/TPMS_warning_icon.svg/2560px-TPMS_warning_icon.svg.png'); filter: invert(); background-position: 50%; box-shadow: none;"></div>
+                                <div class="popup-user-footer">
+                                    <span class="popup-user-name" style="margin-left: calc(100% - 76%)">Attention!</span>
+                                </div>
+                            </div>
+                            <div class="post-body-text-container" style="margin: auto;">
+                                <span class="popup-desc" id="warningText">Etes-vous sur de vouloir vous connecté a se site?</span>
+                            </div>
+                            <a class="popup-button" onclick="warningAccept()" style="background-image: url('https://osu.ppy.sh/assets/images/button.16de7c2c.svg'); background-size: 175%; background-color: crimson; animation: movingTriangles 5s ease infinite;"><span class="popup-button-text">Oui</span></a>
+                            <a class="popup-button" onclick="warningDiscard()"><span class="popup-button-text">Non</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="popup" id="volumeWarning" style="visibility: hidden; transform: translateX(110%) translateY(-118%)">
+                    <div class="navbar-account-dropdown">
+                        <div class="popup-user-container">
+                            <div class="popup-user-background" style="background-image: url('https://osu.ppy.sh/assets/images/button.16de7c2c.svg'); background-size: 175%; background-color: darkorchid;">
+                                <div class="popup-user-avatar" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Speaker_Icon.svg/768px-Speaker_Icon.svg.png'); filter: invert(); background-position: 50%; box-shadow: none;"></div>
+                                <div class="popup-user-footer">
+                                    <span class="popup-user-name" style="margin-left: calc(100% - 76%)">Attention!</span>
+                                </div>
+                            </div>
+                            <div class="post-body-text-container" style="margin: auto;">
+                                <span class="popup-desc" id="warningText">Le mode musique pour l'opening est activé</span>
+                            </div>
+                            <a class="popup-button" onclick="volumeWarningAccept()" style="background-image: url('https://osu.ppy.sh/assets/images/button.16de7c2c.svg'); background-size: 175%; background-color: darkorchid; animation: movingTriangles 5s ease infinite;"><span class="popup-button-text">Suivant</span></a>
+                            <a class="popup-button" onclick="volumeWarningDiscard()"><span class="popup-button-text">Retour</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="popup">
+                <span id="notification-title"></span>
+                <span id="notification-desc"></span>
+            </div>
+        </div>
+    </div>
+
+    <div id="base-contents">
+        <div class="fheader-content">
+            <div class="fheader-row">
+                <div class="fheader-row-title">
+                    <div class="fheader-content-logo" style="background-image: url('https://osu.ppy.sh/assets/images/profile.c681ffeb.svg');"></div>
+                    <div>information du joueur</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fbar-content">
+        <div class="fbar-row">
+            <a class="button-bold" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"><span class="relative">infos<span class="fbar-row-button-dot" style="background-color: #da42f5;"></span></span></a>
+            <a class="button" href="./playlist.html"><span class="relative">playlists</span></a>
+            <a class="button" href="./config.html"><span class="relative">parametres</span></a>
+        </div>
+    </div>
+
+    <div class="profile-details-container">
+        <div class="profile-background"></div>
+        <div class="profile-details">
+            <span class="popup-user-avatar" style="width: 70px; height: 70px; border-radius: 35%; margin-top: 1px; margin-left: 0px"></span>
+            <div class="profile-details-infos">
+                <span id="username" class="profile-details-infos__name"></span>
+                <span id="user-coutry-flag" class="profile-details-infos__flag"></span>
+                <span id="user-coutry" class="profile-details-infos__flag-title" style="top: -23px; left: 32px;"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-infos-container">
+        <div class="profile-details-container-grid">
+            <div>
+                <div class="profile-infos-stats">
+                    <div class="profile-infos_charts">
+                        <div class="profile-infos-ranks">
+                                <div class="display-value-ranks">
+                                    <span class="display-value-ranks-label">Classement Global</span>
+                                    <span class="display-value-ranks-value">#1 024</span>
+                                </div>
+                        </div>
+                    </div>
+        
+                    <div class="profile-infos_charts">
+                        <div class="profile-infos-ranks">  
+                                <div class="display-value-ranks">
+                                    <span class="display-value-ranks-label">Classement Pays</span>
+                                    <span class="display-value-ranks-value">#12</span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <svg width="100%" height="90px">
+                    <g class="profile-infos-graph-lines" transform="translate(15,15)">
+                        <path d="M0,45.74532857891294C2.181210864349251,45.74532857891294,4.362421728698502,45.74532857891294,6.543632593047753,45.74532857891294C8.724843457397004,45.74532857891294,10.906054321746254,45.74532857891294,13.087265186095506,45.74532857891294C15.268476050444756,45.74532857891294,17.449686914794007,45.74532857891294,19.630897779143258,45.74532857891294C21.812108643492508,45.74532857891294,23.99331950784176,45.74532857891294,26.17453037219101,45.74532857891294C28.35574123654026,45.74532857891294,30.53695210088951,45.74532857891294,32.71816296523876,45.74532857891294C34.899373829588015,45.74532857891294,37.08058469393726,49.47443262195418,39.261795558286515,49.47443262195418C41.44300642263577,49.47443262195418,43.624217286985015,49.47443262195418,45.80542815133427,49.47443262195418C47.98663901568352,49.47443262195418,50.16784988003277,49.47443262195418,52.34906074438202,49.47443262195418C54.530271608731276,49.47443262195418,56.71148247308052,49.47443262195418,58.892693337429776,49.47443262195418C61.07390420177902,49.47443262195418,63.255115066128276,53.08877660570667,65.43632593047752,53.08877660570667C67.61753679482678,53.08877660570667,69.79874765917603,53.08877660570667,71.97995852352528,53.08877660570667C74.16116938787454,53.08877660570667,76.34238025222378,53.08877660570667,78.52359111657303,53.08877660570667C80.70480198092228,53.08877660570667,82.88601284527154,53.08877660570667,85.06722370962079,53.08877660570667C87.24843457397004,53.08877660570667,89.42964543831928,56.595213451563524,91.61085630266854,56.595213451563524C93.79206716701779,56.595213451563524,95.97327803136703,56.595213451563524,98.15448889571628,56.595213451563524C100.33569976006554,56.595213451563524,102.51691062441479,56.595213451563524,104.69812148876404,56.595213451563524C106.8793323531133,56.595213451563524,109.06054321746254,56.595213451563524,111.24175408181179,56.595213451563524C113.42296494616104,56.595213451563524,115.6041758105103,56.595213451563524,117.78538667485955,56.595213451563524C119.9665975392088,56.595213451563524,122.14780840355805,60,124.3290192679073,60C126.51023013225655,60,128.6914409966058,60,130.87265186095505,60C133.0538627253043,60,135.23507358965355,60,137.4162844540028,60C139.59749531835206,60,141.7787061827013,60,143.95991704705057,60C146.14112791139982,60,148.32233877574907,60,150.50354964009833,60C152.68476050444758,60,154.8659713687968,53.08877660570667,157.04718223314606,53.08877660570667C159.2283930974953,53.08877660570667,161.40960396184457,53.08877660570667,163.59081482619382,53.08877660570667C165.77202569054307,53.08877660570667,167.95323655489233,53.08877660570667,170.13444741924158,53.08877660570667C172.31565828359084,53.08877660570667,174.4968691479401,53.08877660570667,176.67808001228934,53.08877660570667C178.8592908766386,53.08877660570667,181.04050174098782,53.08877660570667,183.22171260533707,53.08877660570667C185.40292346968633,53.08877660570667,187.58413433403558,53.08877660570667,189.76534519838484,53.08877660570667C191.9465560627341,53.08877660570667,194.12776692708331,53.08877660570667,196.30897779143257,53.08877660570667C198.49018865578182,53.08877660570667,200.6713995201311,53.08877660570667,202.85261038448036,53.08877660570667C205.0338212488296,53.08877660570667,207.21503211317884,53.08877660570667,209.3962429775281,53.08877660570667C211.57745384187734,53.08877660570667,213.7586647062266,53.08877660570667,215.93987557057585,53.08877660570667C218.1210864349251,53.08877660570667,220.30229729927433,53.08877660570667,222.48350816362358,53.08877660570667C224.66471902797284,53.08877660570667,226.84592989232212,53.08877660570667,229.02714075667137,53.08877660570667C231.20835162102063,53.08877660570667,233.38956248536985,53.08877660570667,235.5707733497191,53.08877660570667C237.75198421406836,53.08877660570667,239.9331950784176,53.08877660570667,242.11440594276687,53.08877660570667C244.29561680711612,53.08877660570667,246.47682767146534,37.91196571739484,248.6580385358146,37.91196571739484C250.83924940016385,37.91196571739484,253.0204602645131,37.91196571739484,255.20167112886236,37.91196571739484C257.3828819932116,37.91196571739484,259.56409285756087,29.518616520619183,261.7453037219101,29.518616520619183C263.9265145862594,29.518616520619183,266.1077254506086,29.518616520619183,268.2889363149579,29.518616520619183C270.4701471793071,29.518616520619183,272.6513580436564,29.518616520619183,274.8325689080056,29.518616520619183C277.0137797723549,29.518616520619183,279.1949906367041,29.518616520619183,281.3762015010534,29.518616520619183C283.5574123654026,29.518616520619183,285.7386232297519,29.518616520619183,287.91983409410113,29.518616520619183C290.10104495845036,29.518616520619183,292.28225582279964,29.518616520619183,294.46346668714887,29.518616520619183C296.64467755149815,29.518616520619183,298.8258884158474,29.518616520619183,301.00709928019666,29.518616520619183C303.1883101445459,29.518616520619183,305.3695210088951,29.518616520619183,307.55073187324433,29.518616520619183C309.7319427375936,29.518616520619183,311.91315360194284,29.518616520619183,314.0943644662921,29.518616520619183C316.2755753306414,29.518616520619183,318.4567861949906,29.518616520619183,320.6379970593399,29.518616520619183C322.81920792368913,29.518616520619183,325.0004187880384,33.79024767757947,327.18162965238764,33.79024767757947C329.36284051673687,33.79024767757947,331.54405138108615,20.479010335391745,333.7252622454354,20.479010335391745C335.90647310978466,20.479010335391745,338.0876839741339,20.479010335391745,340.26889483848316,20.479010335391745C342.4501057028324,20.479010335391745,344.63131656718167,20.479010335391745,346.8125274315309,20.479010335391745C348.9937382958802,20.479010335391745,351.1749491602294,25.085754162860574,353.3561600245787,25.085754162860574C355.5373708889279,25.085754162860574,357.71858175327714,25.085754162860574,359.89979261762636,25.085754162860574C362.08100348197564,25.085754162860574,364.26221434632487,25.085754162860574,366.44342521067415,25.085754162860574C368.62463607502343,25.085754162860574,370.80584693937266,25.085754162860574,372.98705780372194,25.085754162860574C375.16826866807116,25.085754162860574,377.34947953242045,5.464097351882713,379.53069039676967,5.464097351882713C381.7119012611189,5.464097351882713,383.8931121254682,5.464097351882713,386.0743229898174,5.464097351882713C388.25553385416663,5.464097351882713,390.4367447185159,5.464097351882713,392.61795558286514,5.464097351882713C394.7991664472144,5.464097351882713,396.98037731156364,0,399.1615881759129,0C401.3427990402622,0,403.52400990461143,0,405.7052207689607,0C407.88643163330994,0,410.06764249765916,0,412.2488533620084,0C414.4300642263577,0,416.6112750907069,0,418.7924859550562,0C420.9736968194054,0,423.1549076837547,0,425.3361185481039,0C427.5173294124532,0,429.6985402768024,0,431.8797511411517,0C434.0609620055009,0,436.2421728698502,0,438.42338373419943,0C440.60459459854866,0,442.78580546289794,0,444.96701632724717,0C447.14822719159645,0,449.3294380559457,0,451.51064892029495,0C453.69185978464424,0,455.87307064899346,0,458.05428151334274,0C460.23549237769197,0,462.4167032420412,0,464.5979141063904,0C466.7791249707397,0,468.9603358350889,0,471.1415466994382,0C473.32275756378743,0,475.5039684281367,5.464097351882713,477.68517929248594,5.464097351882713C479.8663901568352,5.464097351882713,482.04760102118445,5.464097351882713,484.22881188553373,5.464097351882713C486.41002274988296,5.464097351882713,488.5912336142322,5.464097351882713,490.7724444785814,5.464097351882713C492.9536553429307,5.464097351882713,495.1348662072799,5.464097351882713,497.3160770716292,5.464097351882713C499.4972879359785,5.464097351882713,501.6784988003277,5.464097351882713,503.859709664677,5.464097351882713C506.0409205290262,5.464097351882713,508.2221313933755,5.464097351882713,510.4033422577247,5.464097351882713C512.584553122074,5.464097351882713,514.7657639864232,5.464097351882713,516.9469748507724,5.464097351882713C519.1281857151217,5.464097351882713,521.3093965794709,5.464097351882713,523.4906074438202,5.464097351882713C525.6718183081695,5.464097351882713,527.8530291725187,5.464097351882713,530.034240036868,5.464097351882713C532.2154509012173,5.464097351882713,534.3966617655665,5.464097351882713,536.5778726299158,5.464097351882713C538.759083494265,5.464097351882713,540.9402943586142,5.464097351882713,543.1215052229635,5.464097351882713C545.3027160873128,5.464097351882713,547.4839269516619,5.464097351882713,549.6651378160112,5.464097351882713C551.8463486803605,5.464097351882713,554.0275595447097,5.464097351882713,556.208770409059,5.464097351882713C558.3899812734082,5.464097351882713,560.5711921377575,5.464097351882713,562.7524030021068,5.464097351882713C564.933613866456,5.464097351882713,567.1148247308053,5.464097351882713,569.2960355951544,5.464097351882713C571.4772464595037,5.464097351882713,573.658457323853,5.464097351882713,575.8396681882023,5.464097351882713C578.0208790525515,5.464097351882713,580.2020899169007,5.464097351882713,582.38330078125,5.464097351882713"></path>
+                    </g>
+                </svg>
+
+                <div class="profile-infos-stats">
+                    <div class="profile-infos_charts">
+                        <div class="profile-infos-ranks" style="margin-right: 30px;">
+                                <div class="display-value-ranks">
+                                    <span class="display-value-ranks-label" style="font-size: 14px;">succées</span>
+                                    <span class="display-value-ranks-value" style="font-size: 14px;">54</span>
+                                </div>
+                        </div>
+
+                        <div class="profile-infos-ranks">
+                            <div class="display-value-ranks"  style="margin-right: 30px;">
+                                <span class="display-value-ranks-label" style="font-size: 14px;">pp</span>
+                                <span class="display-value-ranks-value" style="font-size: 14px;">15 430</span>
+                            </div>
+                        </div>
+
+                        <div class="profile-infos-ranks">
+                            <div class="display-value-ranks"  style="margin-right: 30px;">
+                                <span class="display-value-ranks-label" style="font-size: 14px;">temps de jeu</span>
+                                <span class="display-value-ranks-value" style="font-size: 14px;">921h</span>
+                            </div>
+                        </div>
+                    </div>
+                    </div>    
+                </div>    
+            
+                <div class="profile-infos-separator"></div>
+                <div style="vertical-align: middle;">
+                    <div class="profile-infos-details" style="top: 35px; position: relative;">
+
+                        <dl class="profile-infos-details-entry">
+                            <dt class="profile-infos-details-entry__key">Score classé</dt>
+                            <dl class="profile-infos-details-entry__value">446 778 627</dl>
+                        </dl>
+    
+                        <dl class="profile-infos-details-entry">
+                            <dt class="profile-infos-details-entry__key">Précision</dt>
+                            <dl class="profile-infos-details-entry__value">95,93%</dl>
+                        </dl>
+    
+                        <dl class="profile-infos-details-entry">
+                            <dt class="profile-infos-details-entry__key">Nombres de parties</dt>
+                            <dl class="profile-infos-details-entry__value">19 832</dl>
+                        </dl>
+    
+                        <dl class="profile-infos-details-entry">
+                            <dt class="profile-infos-details-entry__key">Score total</dt>
+                            <dl class="profile-infos-details-entry__value">4 319 589 317</dl>
+                        </dl>
+    
+                        <dl class="profile-infos-details-entry">
+                            <dt class="profile-infos-details-entry__key">Nombre de clics</dt>
+                            <dl class="profile-infos-details-entry__value">4 139 317</dl>
+                        </dl>
+    
+                        <dl class="profile-infos-details-entry">
+                            <dt class="profile-infos-details-entry__key">Combo maximum</dt>
+                            <dl class="profile-infos-details-entry__value">699669</dl>
+                        </dl>
+    
+                        <dl class="profile-infos-details-entry">
+                            <dt class="profile-infos-details-entry__key">Replays regardés par les autres</dt>
+                            <dl class="profile-infos-details-entry__value">22</dl>
+                        </dl>
+    
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    <script>
+        start();
+        injectCountry('user-coutry');
+    </script>
+</body>   
