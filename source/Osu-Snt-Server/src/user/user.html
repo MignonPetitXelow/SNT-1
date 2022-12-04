@@ -1,13 +1,20 @@
 <!DOCTYPE html><html><head>
     <title> User </title>
 
-    <link rel="stylesheet" href="assets/style/osu.css">
-    <link rel="shortcut icon" href="assets/icons/lazer.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/style/osu.css">
+    <link rel="stylesheet" href="../assets/style/user.css">
 
-    <script src="assets/js/Events/Actions.js">// Buttons events</script>
-    <script src="assets/js/Preloader.js">// Preloader (useful to change player name byexemple)</script>
+    <link rel="stylesheet" href="../assets/style/user/friends.css">
+    <link rel="stylesheet" href="../assets/style/user/beatmap.css">
 
-    <script src="assets/js/Data/Injection.js">// Inject different parameter to components</script>
+    <link rel="shortcut icon" href="../assets/icons/lazer.png" type="image/x-icon">
+
+    <script src="../assets/js/Events/Actions.js">// Buttons events</script>
+    <script src="../assets/js/Preloader.js">// Preloader (useful to change player name byexemple)</script>
+
+    <script src="../assets/js/Data/Injection.js">// Inject different parameter to components</script>
+
+    <script src="../assets/js/Builder/user.js">// Managing users profiles pages</script>
 
     <meta charset="utf-8"/>
 </head>
@@ -18,27 +25,26 @@
     <div class="triangle" style="filter: hue-rotate(266deg);"></div>
     <div class="navbar">
         <a href="/"><div class="osu-logo"></div></a>
-        <a class="button" href="/" onmouseover="playSong('click')"> <span class="relative"> accueil</span> </a>
-        <a class="button" href="#" onmouseover="playSong('click')"> <span class="relative"> developement </span> </a>
-        <a class="button" href="#" onmouseover="playSong('click')"> <span class="relative"> boutique </span> </a>
+        <a class="button" href="/" onmouseover=""> <span class="relative"> accueil</span> </a>
+        <a class="button" href="#" onmouseover=""> <span class="relative"> developement </span> </a>
+        <a class="button" href="#" onmouseover=""> <span class="relative"> boutique </span> </a>
 
         <span class="navbar-void"></span>
 
         <div class="navbar-account-body">
             <div class="navbar-account">
-                <a class="navbar-account-widget" onmouseover="playSong('click')"><!-- Twitter icon--> <span class="icon-twitter"></span></a>
-                <a class="navbar-account-widget" href="https://github.com/mignonpetitxelow" onmouseover="playSong('click')"><!-- Github icon--> <span class="icon-github"></span></a>
-                <a class="navbar-account-widget" href="https://osu.ppy.sh/home" onmouseover="playSong('click')"><!-- Osu icon--><span class="icon-mania"></span></a>
+                <a class="navbar-account-widget" href="https://twitter/ImXelow"><!-- Twitter icon--> <span class="icon-twitter"></span></a>
+                <a class="navbar-account-widget" href="https://github.com/mignonpetitxelow"><!-- Github icon--> <span class="icon-github"></span></a>
+                <a class="navbar-account-widget" href="https://osu.ppy.sh/home"><!-- Osu icon--><span class="icon-mania"></span></a>
                 
-                <span class="navbar-account-avatar" onclick="accountPopUp()" onmouseover="playSong('click')"></span>
+                <span class="navbar-account-avatar" id="navbar-username" onclick="openUsrDrpDwnMnu();"></span>
 
-                <div class="popup" id="usermenu" style="visibility: hidden; transform: translateX(110%) translateY(-118%)">
-                    <div class="navbar-account-dropdown">
-
-                        <div class="popup-user-container" style="height: 200px;">
-                            <div class="popup-user-background" style="filter: blur(1px) brightness(80%);"></div>
-                            <div style="transform: translateY(-100px);">
-                                <div class="popup-user-avatar"></div>
+                    <div class="popup" id="usermenu" style="transform: translateX(110%) translateY(-118%)">
+                        <div class="navbar-account-dropdown">
+                            <div class="popup-user-container" style="height: 227px;">
+                                <div class="popup-user-background" id="popup-user-background" style="filter: blur(1px) brightness(80%);"></div>
+                                <div style="transform: translateY(-100px);">
+                                    <div class="popup-user-avatar" id="popup-user-avatar"></div>
                                     <div class="popup-user-footer">
                                         <span id="username-prof" class="popup-user-name"></span>
                                 </div>
@@ -58,7 +64,7 @@
                 <div class="popup" id="parametermenu" style="visibility: hidden; transform: translateX(100%) translateY(-118%);">
                     <div class="navbar-account-dropdown">
                         <div class="popup-user-container">
-                            <div class="popup-user-background" style="background-image: url('../../resources/background/osu/image0.png');">
+                            <div class="popup-user-background" style="background-image: url('../../assets/images/background/osu/image0.png');">
                                 <div class="popup-user-avatar" style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/d/dc/Settings-icon-symbol-vector.png); filter: invert();"></div>
                                 <div class="popup-user-footer">
                                     <span class="popup-user-name" style="margin-left: calc(100% - 80%);">Parametres</span>
@@ -76,7 +82,6 @@
                         <a class="parameter-button" href="#" onclick="playNo()">
                             <span class="parameter-button-dot"></span>
                             <span class="popup-button-text">Desac easter eggs</span>
-                            <audio id="no"><source src="../r../esources/audio/no.mp3" type="audio/mpeg"></audio>
                         </a>
 
                         <a class="parameter-button" href="#" onclick="activeSong()">
@@ -164,7 +169,7 @@
         <div class="fbar-row">
             <a class="button-bold" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"><span class="relative">infos<span class="fbar-row-button-dot" style="background-color: #da42f5;"></span></span></a>
             <a class="button" href="./playlist.html"><span class="relative">playlists</span></a>
-            <a class="button" href="./config.html"><span class="relative">parametres</span></a>
+            <a class="button"><span class="relative">amis</span></a>
         </div>
     </div>
 
@@ -278,8 +283,37 @@
         </div>
     </div>
 
+    <div class="profile-subinfos-container">
+        <div class="subinfo-container">
+            <div class="display-subinfo-value">
+                <span class="display-value-subinfo-label" style="font-size: 14px;">❤️ </span>
+                <span class="display-value-subinfo-value" id="liked-subinfo" style="font-size: 14px;">54</span>
+            </div>
+            <div class="display-subinfo-value">
+                <span class="display-value-subinfo-label" style="font-size: 14px;">joue avec </span>
+                <span class="display-value-subinfo-value" id="playstyle-subinfo" style="font-size: 14px;">54</span>
+            </div>
+        </div>
+    </div>
+    <div class="categorie-container">
+        <div class="categorie-obj-container"> 
+            <div class="subinfo-container" style="transform: none;">
+                <h2 class="categorie-title"><span class="relative">Amis <span class="button-dot"></span></span></h2>
+            </div>
+            <div class="favfriend-container" id="favfriend-container"></div>
+        </div>
+
+        <div class="categorie-obj-container" id="categorie-obj-container"> 
+            <div class="subinfo-container" style="transform: none;">
+                <h2 class="categorie-title"><span class="relative">Beatmaps jouer recement<span class="button-dot"></span></span></h2>
+            </div>
+        </div>
+    </div>
+
     <script>
-        start();
-        injectCountry('user-coutry');
+        PL_Init();
+        let a = window.location.href.replace("http://localhost:1024/user/", "");
+        console.log("Searching for profile with ID='"+a+"'.");
+        PL_U_Load(a);
     </script>
 </body>   

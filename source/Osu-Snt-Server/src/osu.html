@@ -16,7 +16,7 @@
         <div class="navbar-bg-container" id="navbar"><div class="navbar-bg"></div></div>
         <div class="triangle"></div>
         <div class="navbar">
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"><div class="osu-logo"></div></a>
+            <a onclick="redirect('https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley')"><div class="osu-logo"></div></a>
             <a class="button" href="#"><span class="relative"> accueil <span class="button-dot"></span></span> </a>
             <a class="button" href="#"><span class="relative"> developement </span> </a>
             <a class="button" href="#"><span class="relative"> boutique </span> </a>
@@ -29,22 +29,22 @@
                     <a class="navbar-account-widget" href="https://github.com/mignonpetitxelow"> <span class="icon-github"></span></a>
                     <a class="navbar-account-widget" href="https://osu.ppy.sh"> <span class="icon-mania"></span></a>
                     
-                    <span class="navbar-account-avatar" onclick="openUsrDrpDwnMnu();"></span>
+                    <span class="navbar-account-avatar" id="navbar-username" onclick="openUsrDrpDwnMnu();"></span>
 
                     <div class="popup" id="usermenu" style="transform: translateX(110%) translateY(-118%)">
                         <div class="navbar-account-dropdown">
                             <div class="popup-user-container" style="height: 227px;">
-                                <div class="popup-user-background" style="filter: blur(1px) brightness(80%);"></div>
+                                <div class="popup-user-background" id="popup-user-background" style="filter: blur(1px) brightness(80%);"></div>
                                 <div style="transform: translateY(-100px);">
-                                    <div class="popup-user-avatar"></div>
+                                    <div class="popup-user-avatar" id="popup-user-avatar"></div>
                                         <div class="popup-user-footer">
-                                            <span id="username" class="popup-user-name" style="text-align: center; width:180px">Xelow</span>
+                                            <span id="username-prof" class="popup-user-name" style="text-align: center; width:180px">Xelow</span>
                                     </div>
                                 </div>
                             </div>
                             
                             <div style="transform: translateY(-130px)">
-                                <a class="popup-button" href="/user/"><span class="icon-github" style="background-image: url('https://osu.ppy.sh/images/icons/profile.svg')"></span><span class="popup-button-text">mon compte</span></a>
+                                <a class="popup-button" onclick="redirectOwnAcc();"><span class="icon-github" style="background-image: url('https://osu.ppy.sh/images/icons/profile.svg')"></span><span class="popup-button-text">mon compte</span></a>
 
                             </div>
                         </div>

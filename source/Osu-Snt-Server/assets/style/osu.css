@@ -214,16 +214,21 @@
 }
 
 .popup-user-footer{
+    display: flex;
     transform: translateZ(0);
     align-items: center;
+    justify-content: center;
 }
 
 .popup-user-name{
     position: absolute;
+    text-align: center;
     font-family:"Torus";
     font-size: 20px;
     color: #fff;
     top: -5px;
+
+    text-shadow: 0 1px 10px rgba(255, 255, 255, 0.596);
 }
 
 .popup-buttons-container{
