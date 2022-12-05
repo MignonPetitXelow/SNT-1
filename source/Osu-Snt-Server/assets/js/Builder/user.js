@@ -24,6 +24,9 @@ function loadUserBaseData(id)
 
         for(var i = 0; i < b.length-1; ++i) { injectFavFriendComponent(b[i]); }
         for(var i = 0; i < c.length-1; ++i) { injectRecentPlayComponent(c[i]); }
+
+        if(b[0] == undefined) { injectSadMessage('favfriend-container', "Ce profile n'a pas d'amis :'(("); }
+        if(c[0] == undefined) { injectSadMessage('categorie-obj-container', "(。﹏。*) Ce profile n'a pas jouer de map recement.."); }
     });
 }
 
@@ -55,4 +58,12 @@ function injectRecentPlayComponent(id='1&34')
             </div>`
         );
     });
+}
+
+function injectSadMessage(obj,message)
+{
+    document.getElementById(obj).insertAdjacentHTML(
+        "beforeend",
+        `<div class="sad-message">${message}</div>`
+    );
 }
