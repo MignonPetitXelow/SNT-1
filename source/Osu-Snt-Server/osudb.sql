@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : Dim 04 déc. 2022 à 21:04
+-- Généré le : lun. 05 déc. 2022 à 20:49
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`ID`, `NAME`, `COUNTRY`, `AVATAR_URL`, `BANNER_URL`, `FOLLOW`, `PLAYSTYLE`, `LIKED`, `PLAYED`) VALUES
 (1, 'Xelow', 'Canada', 'https://avatars.githubusercontent.com/u/48628282', 'https://safebooru.org//samples/4026/sample_20084ad9e0e19968df26f976d4ae512f83112e30.jpg?4206780', '2;3;', 'Clavier;Tablette;', 'Faire des calins', '1&122;2&23;3&10;'),
-(2, 'Luniko', 'France', 'https://www.nautiljon.com/images/perso/00/67/hanako-kun_20276.jpg?1625606230', 'https://www.anime-gate.net/images-mangas-fonds/jibaku-shounen-hanako-kun.jpg', '1;3;', 'Clavier;Souris;', 'Avoir Xiao', ''),
+(2, 'Luniko', 'France', 'https://i.pinimg.com/564x/d1/e8/da/d1e8da599714c068e6ecf60a327914f8.jpg', 'https://www.anime-gate.net/images-mangas-fonds/jibaku-shounen-hanako-kun.jpg', '1;3;', 'Clavier;Souris;', 'Avoir Xiao', ''),
 (3, 'Test', 'Allemagne', 'https://i.ppy.sh/5909dcab19c5f4d866da39ab5362bd046849b37c/68747470733a2f2f692e696d6775722e636f6d2f5165706e55347a2e6a7067', '../assets/images/background/osu/image1.png', '', 'Clavier;Souris;', 'Dire \"Welcome to Osu\".', '');
 COMMIT;
 
