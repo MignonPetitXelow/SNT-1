@@ -26,7 +26,8 @@ app.get("/post/users/:id", (req, res) => {
                 "friend": result[0].FOLLOW,
                 "playstyle": result[0].PLAYSTYLE,
                 "like": result[0].LIKED,
-                "played": result[0].PLAYED
+                "played": result[0].PLAYED,
+                "discord_account": result[0].DISCORD_USER
             });
         }
         catch{

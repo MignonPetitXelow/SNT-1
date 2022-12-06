@@ -11,7 +11,31 @@ function loadUserBaseData(id)
         injectComponentText("username", data.username);
 
         injectComponentText("liked-subinfo", data.like);
-        injectComponentText("playstyle-subinfo", data.playstyle.replace(";", " "));
+
+        if(data.discord_account != '') document.getElementById('subinfoprofile-container').insertAdjacentHTML("beforeend",`
+            <div class="display-subinfo-value">
+                <span class="display-value-subinfo-label" style="font-size: 14px;"><span style="
+                    display: block;
+                    background-image: url('../assets/icons/discord.png');
+                    background-repeat: no-repeat;
+                    background-size: 110%;
+                    background-position: 50%;
+                    position: relative;
+
+                    width: 14px;
+                    height: 14px;
+                    top: 3px;
+                    filter: sepia(255) brightness(150);
+                "></span></span>
+                <span class="display-value-subinfo-value" id="liked-subinfo" style="font-size: 14px;">${data.discord_account}</span>
+            </div>
+        `);
+
+        var playStyle = '';
+        const playStyleList = data.playstyle.split(';');
+        for(var i = 0; i < playStyleList.length; ++i) { playStyle += playStyleList[i]; if(i < playStyleList.length-2) playStyle += ', '; }
+
+        injectComponentText("playstyle-subinfo", playStyle);
 
         injectComponentText("user-coutry", data.country);
         document.getElementById("user-coutry-flag").style.backgroundImage = "url(../../assets/icons/flags/"+data.country+".svg)";
@@ -19,15 +43,30 @@ function loadUserBaseData(id)
         injectVariable('--user-background-url', `url(${data.banner})`);
         injectVariable('--user-avatar-url', `url(${data.avatar})`);
 
-        const b = data.friend.split(';');
-        const c = data.played.split(';');
+        injectPageComponents(data);
+        injectViewSelfProfile(id);
 
-        for(var i = 0; i < b.length-1; ++i) { injectFavFriendComponent(b[i]); }
-        for(var i = 0; i < c.length-1; ++i) { injectRecentPlayComponent(c[i]); }
+        if(data.friend == '') { injectSadMessage('favfriend-container', "<(＿　＿)> Ce profile n'a pas d'amis.."); }
+        if(data.played == '') { injectSadMessage('beatmaps-container', "(。﹏。*) Ce profile n'a pas jouer de map recement.."); }
 
-        if(b[0] == undefined) { injectSadMessage('favfriend-container', "Ce profile n'a pas d'amis :'(("); }
-        if(c[0] == undefined) { injectSadMessage('categorie-obj-container', "(。﹏。*) Ce profile n'a pas jouer de map recement.."); }
+
     });
+}
+
+function injectPageComponents(data)
+{
+    const b = data.friend.split(';');
+    const c = data.played.split(';');
+
+    for(var i = 0; i < b.length-1; ++i) { injectFavFriendComponent(b[i]); }
+    for(var i = 0; i < c.length-1; ++i) { injectRecentPlayComponent(c[i]); }
+}
+
+function injectViewSelfProfile(id=1)
+{
+    if(id != 1){ //(self id)
+        document.getElementById("popup-menu-profile").insertAdjacentHTML("afterbegin", `<a class="popup-button" onclick="redirectOwnAcc();"><span class="icon-github" style="background-image: url('https://osu.ppy.sh/images/icons/profile.svg')"></span><span class="popup-button-text">mon compte</span></a>`)
+    }
 }
 
 function injectFavFriendComponent(id=1) 
@@ -43,7 +82,7 @@ function injectRecentPlayComponent(id='1&34')
     const a = id.split('&');
     fetch(`http://localhost:1024/post/beatmaps/${a[0]}`).then(function(response){ return response.json(); }).then(function(data)
     { 
-        document.getElementById('categorie-obj-container').insertAdjacentHTML(
+        document.getElementById('beatmaps-container').insertAdjacentHTML(
             "beforeend",
             `<div class="map-played" onclick="redirect('${data.link}')"> 
                 <div class="map-object-banner" style="background-image: url('${data.banner}');"></div>

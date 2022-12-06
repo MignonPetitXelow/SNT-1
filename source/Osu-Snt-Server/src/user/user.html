@@ -49,7 +49,7 @@
                                         <span id="username-prof" class="popup-user-name"></span>
                                 </div>
                             </div>
-                            <div style="transform: translateY(-70px);">
+                            <div id="popup-menu-profile" style="transform: translateY(-70px);">
                                 <a class="popup-button" onclick="warningMessage('github', 'https\:\/\/github.com/mignonpetitxelow/snt-1');"  href="#"><span class="icon-github"></span><span class="popup-button-text">projet github</span></a>
                                 <a class="popup-button" onclick="playDiscordo()" href="#"><span class="icon-discord"></span><span class="popup-button-text">discord</span>
                                 </a>
@@ -284,7 +284,7 @@
     </div>
 
     <div class="profile-subinfos-container">
-        <div class="subinfo-container">
+        <div class="subinfo-container" id="subinfoprofile-container">
             <div class="display-subinfo-value">
                 <span class="display-value-subinfo-label" style="font-size: 14px;">❤️ </span>
                 <span class="display-value-subinfo-value" id="liked-subinfo" style="font-size: 14px;">54</span>
@@ -307,6 +307,7 @@
             <div class="subinfo-container" style="transform: none;">
                 <h2 class="categorie-title"><span class="relative">Beatmaps jouer recement<span class="button-dot"></span></span></h2>
             </div>
+            <div class="beatmaps-container" id="beatmaps-container"></div>
         </div>
     </div>
 

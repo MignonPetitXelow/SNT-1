@@ -279,7 +279,6 @@
     background-color: #1b191f;
     min-width: 900px;
     padding-top: 5px;
-    padding-bottom: 5px;
     width: calc(100% - 60px);
     max-width: 1000px;
     position: relative;
@@ -287,6 +286,10 @@
     margin-left: auto;
     margin-right: auto;
     z-index: 0;
+
+    padding-bottom: 15px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 .favfriend-container{
@@ -299,8 +302,13 @@
     transform: translateZ(0);
 }
 
+.beatmaps-container{
+    padding-left: 50px;
+    margin: 10px;
+}
+
 .sad-message{
     color: #C2B8E0;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 600;
 }
