@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 05 déc. 2022 à 20:49
--- Version du serveur :  5.7.31
--- Version de PHP : 7.3.21
+-- Généré le : mar. 06 déc. 2022 à 19:15
+-- Version du serveur : 5.7.36
+-- Version de PHP : 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -65,6 +65,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `PLAYSTYLE` varchar(255) NOT NULL DEFAULT 'Clavier;Souris;',
   `LIKED` varchar(255) NOT NULL DEFAULT 'Dire "Welcome to Osu".',
   `PLAYED` varchar(255) NOT NULL,
+  `DISCORD_USER` varchar(255) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
@@ -72,10 +73,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`ID`, `NAME`, `COUNTRY`, `AVATAR_URL`, `BANNER_URL`, `FOLLOW`, `PLAYSTYLE`, `LIKED`, `PLAYED`) VALUES
-(1, 'Xelow', 'Canada', 'https://avatars.githubusercontent.com/u/48628282', 'https://safebooru.org//samples/4026/sample_20084ad9e0e19968df26f976d4ae512f83112e30.jpg?4206780', '2;3;', 'Clavier;Tablette;', 'Faire des calins', '1&122;2&23;3&10;'),
-(2, 'Luniko', 'France', 'https://i.pinimg.com/564x/d1/e8/da/d1e8da599714c068e6ecf60a327914f8.jpg', 'https://www.anime-gate.net/images-mangas-fonds/jibaku-shounen-hanako-kun.jpg', '1;3;', 'Clavier;Souris;', 'Avoir Xiao', ''),
-(3, 'Test', 'Allemagne', 'https://i.ppy.sh/5909dcab19c5f4d866da39ab5362bd046849b37c/68747470733a2f2f692e696d6775722e636f6d2f5165706e55347a2e6a7067', '../assets/images/background/osu/image1.png', '', 'Clavier;Souris;', 'Dire \"Welcome to Osu\".', '');
+INSERT INTO `user` (`ID`, `NAME`, `COUNTRY`, `AVATAR_URL`, `BANNER_URL`, `FOLLOW`, `PLAYSTYLE`, `LIKED`, `PLAYED`, `DISCORD_USER`) VALUES
+(1, 'Xelow', 'Canada', 'https://avatars.githubusercontent.com/u/48628282', 'https://safebooru.org//samples/4026/sample_20084ad9e0e19968df26f976d4ae512f83112e30.jpg?4206780', '2;3;', 'Clavier;Tablette;Souris;Tactile;', 'Faire des calins', '1&122;2&23;3&10;', 'Xelow#0001'),
+(2, 'Luniko', 'France', 'https://i.pinimg.com/564x/d1/e8/da/d1e8da599714c068e6ecf60a327914f8.jpg', 'https://www.anime-gate.net/images-mangas-fonds/jibaku-shounen-hanako-kun.jpg', '1;3;', 'Clavier;Souris;', 'Avoir Xiao', '', ''),
+(3, 'Test', 'Allemagne', 'https://i.ppy.sh/5909dcab19c5f4d866da39ab5362bd046849b37c/68747470733a2f2f692e696d6775722e636f6d2f5165706e55347a2e6a7067', 'http://localhost:1024/assets/images/background/osu/image1.png', '', 'Clavier;Souris;', 'Dire \"Welcome to Osu\".', '', '');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
