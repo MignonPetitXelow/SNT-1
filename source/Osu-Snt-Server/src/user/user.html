@@ -11,6 +11,9 @@
 
     <script src="../assets/js/Events/Actions.js">// Buttons events</script>
     <script src="../assets/js/Preloader.js">// Preloader (useful to change player name byexemple)</script>
+    
+    <script src="../assets/js/Data/Cookie.js"></script>
+    <script src="../assets/js/Builder/services/account.js"></script>
 
     <script src="../assets/js/Data/Injection.js">// Inject different parameter to components</script>
 
@@ -180,7 +183,7 @@
             <div class="profile-details-infos">
                 <span id="username" class="profile-details-infos__name"></span>
                 <span id="user-coutry-flag" class="profile-details-infos__flag"></span>
-                <span id="user-coutry" class="profile-details-infos__flag-title" style="top: -23px; left: 32px;"></span>
+                <span id="user-coutry" class="profile-details-infos__flag-title" style="top: -24.5px; left: 32px;"></span>
             </div>
         </div>
     </div>
@@ -313,8 +316,6 @@
 
     <script>
         PL_Init();
-        let a = window.location.href.replace("http://localhost:1024/user/", "");
-        console.log("Searching for profile with ID='"+a+"'.");
-        PL_U_Load(a);
+        PL_U_Load(window.location.href.replace("http://localhost:1024/user/", ""));
     </script>
 </body>   

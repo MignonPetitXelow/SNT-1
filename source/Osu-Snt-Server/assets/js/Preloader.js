@@ -1,6 +1,6 @@
-function PL_Init()
+function PL_Init(id=1)
 {
-    loadSelfUserData();
+    loadSelfUserData(id);
 }
 
 function loadSelfUserData(id='1')

@@ -1,4 +1,60 @@
-function PL_U_Load(id='1')
+const flagsName = [
+    {country: "undefined", name: "Pays inconnue"},
+    {country:"US", name:"United States"},
+    {country:"RU", name:"Russian Federation"},
+    {country:"DE", name:"Germany"},
+    {country:"CA", name:"Canada"},
+    {country:"PL" , name:"Poland"},
+    {country:"PH" , name:"Philippines"},
+    {country:"FR" , name:"France"},
+    {country:"JP" , name:"Japan"},
+    {country:"BR" , name:"Brazil"},
+    {country:"GB" , name:"United Kingdom"},
+    {country:"ID" , name:"Indonesia"},
+    {country:"HM" , name:"Australia"},
+    {country:"TW" , name:"Taiwan"},
+    {country:"CL" , name:"Chile"},
+    {country:"MY" , name:"Malaysia"},
+    {country:"KR" , name:"South Korea"},
+    {country:"UA" , name:"Ukraine"},
+    {country:"MX" , name:"Mexico"},
+    {country:"AR" , name:"Argentina"},
+    {country:"TH" , name:"Thailand"},
+    {country:"SG" , name:"Singapore"},
+    {country:"CN" , name:"China"},
+    {country:"VN" , name:"Vietnam"},
+    {country:"IT" , name:"Italia"},
+    {country:"HK" , name:"Hong Kong"},
+    {country:"FI" , name:"Finland"},
+    {country:"ES" , name:"Spain"},
+    {country:"NL" , name:"Netherlands"},
+    {country:"SE" , name:"Sweden"},
+    {country:"TR" , name:"Turkey"},
+    {country:"PE" , name:"Peru"},
+    {country:"CZ" , name:"Czech Republic"},
+    {country:"RO" , name:"Romania"},
+    {country:"PT" , name:"Portugal"},
+    {country:"NO" , name:"Norway"},
+    {country:"AT" , name:"Austria"},
+    {country:"HU" , name:"Hungary"},
+    {country:"CO" , name:"Colombia"},
+    {country:"KZ" , name:"Kazakhstan"},
+    {country:"BE" , name:"Belgium"},
+    {country:"BY" , name:"Belarus"},
+    {country:"NZ" , name:"New Zealand"},
+    {country:"LT" , name:"Lithuania"},
+    {country:"IL" , name:"Israel"},
+    {country:"DK" , name:"Denmark"},
+    {country:"IN" , name:"India"},
+    {country:"CH" , name:"Switzerland"},
+    {country:"GR" , name:"Greece"},
+    {country:"EE" , name:"Estonia"},
+    {country:"BG" , name:"Bulgaria"},
+];
+
+function getCountryName(country="undefined") { for(var i = 0; i < flagsName.length; ++i) if(flagsName[i].country == country) return flagsName[i].name; return flagsName[0].name;}
+
+function PL_U_Load(id='1', page)
 {
     loadUserBaseData(id);
 }
@@ -37,8 +93,8 @@ function loadUserBaseData(id)
 
         injectComponentText("playstyle-subinfo", playStyle);
 
-        injectComponentText("user-coutry", data.country);
-        document.getElementById("user-coutry-flag").style.backgroundImage = "url(../../assets/icons/flags/"+data.country+".svg)";
+        injectComponentText("user-coutry", getCountryName(data.country));
+        document.getElementById("user-coutry-flag").style.backgroundImage = "url(../../assets/icons/flags/"+data.country+".png)";
 
         injectVariable('--user-background-url', `url(${data.banner})`);
         injectVariable('--user-avatar-url', `url(${data.avatar})`);

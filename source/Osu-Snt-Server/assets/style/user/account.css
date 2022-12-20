@@ -1,0 +1,108 @@
+.defcontainer {
+    position: relative;
+    columns: 15px;
+    z-index: 10;
+    display: flex;
+    width: calc(100% - 500px);
+    height: 600px;
+    max-width: 1000px;
+
+    justify-content: center;
+
+    margin-left: auto;
+    margin-right: auto; 
+
+    font-family:"Torus";
+    font-size: 16px;
+    line-height: 1.25;
+    color: #fff;
+
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.welcometoOsuIco{
+    margin: 5px;
+
+    background-image: url(../../images/background/osu/image1.png);
+    background-position: 50%;
+    background-size: 100%;
+    height: 100px;
+    width: 350px;
+
+    margin-left: 125px;
+    margin-right: 125px;
+
+    border-radius: 10px;
+    z-index: 0;
+
+    filter: blur(.8px) brightness(80%);
+}
+
+.welcometoOsuText{
+    position: relative;
+    margin: 5px;
+    width: 350px;
+    margin-left: 125px;
+    margin-right: 125px;
+    font-size: 30px;
+    text-align: center;
+    z-index: 1;
+    transform: translateY(-75px);
+}
+
+.bigAccButton{
+    position: relative;
+    display: table-cell !important;
+    background-color: #2E293D;
+    font-size: 20px;
+    text-align: center;
+    vertical-align: middle;
+    left: 5px;
+    width: 200px;
+    height: 50px;
+    
+    border-radius: 10px;
+    transition: all .6s;
+}
+
+.bigAccButton:hover{
+    background-color: #4926a8;
+}
+
+.login-entry__value{
+    margin-left: 0;
+    background: #1e1b27;
+    transition: border-color 0.2s;
+
+    border-radius: 5px;
+    border-style: groove;
+    border-width: 1px;
+    border-color: #282433;
+
+    height: 20px;
+    width: 200px;
+    margin-top: 3px;
+
+    color: white;
+}
+
+.login-button{
+    margin-top: 8px;
+    margin-left: 3px;
+
+    border-radius: 5px;
+
+    width: 200px;
+    height: 25px;
+
+    text-align: center;
+    vertical-align: middle;
+
+    background-color: #1e1b27;
+    transition: all .6s;
+}
+
+.login-button:hover{
+    background-color: #4926a8;
+}

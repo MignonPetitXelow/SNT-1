@@ -1,5 +1,5 @@
 :root {
-    --flag-url: url("../icons/flags/France.svg");
+    --flag-url: url("../icons/flags/undefined.png");
 }  
 
 .profile-details{
@@ -81,16 +81,15 @@
     display: block;
 
     background-image: var(--flag-url);
-    background-size: cover;
+    background-size: contain;
     background-position: 50%;
     background-repeat: no-repeat;
-    border-radius: 3px;
     position: relative;
     filter: saturate(1.1);
     transform: translateZ(0);
 
-    width: 26px;
-    height: 26px;
+    width: 28px;
+    height: 28px;
 }
 
 .profile-details-infos__flag-title {
